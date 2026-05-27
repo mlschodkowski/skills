@@ -17,7 +17,7 @@ Do not audit architecture coupling (Stress Test handles that) or code aesthetics
 * **The Static Illusion:** Can we hardcode this outcome entirely? Can a volatile in-memory dictionary, an environment variable, or a raw JSON blob replace a database schema, an ORM layer, or a dynamic API endpoint for now?
 * **The Dependency Audit:** Are you installing an external library or adding heavy infrastructure (like a Redis cache, a message queue, or a new database table) to solve a problem that standard library primitives or local state could handle?
 
-> **The Golden Code Filter:** Ask yourself: *"Is this not overengineered?"* If you have to spend more than 3 seconds justifying why it is *not*, it is. Simplify it.
+> **The Golden Code Filter:** Ask yourself: *"Is this not overengineered compared to what user wanted?"* If you have to spend more than 3 seconds justifying why it is *not*, it is. Simplify it.
 
 ---
 
