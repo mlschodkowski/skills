@@ -3,8 +3,6 @@ name: stress-test-plan
 description: Use during design docs or architectural reviews to aggressively expose tight coupling and state fragility.
 ---
 
-# Stress Test Plan
-
 Your job is to violently audit a proposed software design against the core laws of high-leverage architecture: Information Hiding, Tight State Control, and Single Sources of Truth. 
 
 Do not audit the feature scope (Distill handles that). Audit the systemic bones. Challenge the design with these three structural filters:

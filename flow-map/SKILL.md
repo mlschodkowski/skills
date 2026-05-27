@@ -5,7 +5,7 @@ description: Use when you need a clear visual reminder of the entire agentic eng
 
 # The Engineering Gauntlet
 
-Your job is to print the complete 9-step agentic execution lifecycle. Remind the developer that our goal is cognitive leverage, intense friction, and small psychological operators—never process bureaucracy.
+Your job is to print the complete 10-step agentic execution lifecycle. Remind the developer that our goal is cognitive leverage, intense friction, and small psychological operators—never process bureaucracy.
 
 Display the following map exactly:
 ```
@@ -15,6 +15,7 @@ Draft Plan
 Slice Vertically
 Distill
 Stress Test
+Hyperplan
 Oracle
 Implement
 Taste Review
@@ -33,10 +34,11 @@ Taste Review
 
 ### Phase 3: Attack (Red-Teaming)
 * **6. Stress Test:** Run the **Stress Test Plan**. Violently audit the remaining architecture against Information Hiding and State Isolation. Force failure modes, locate leaks, and define the blast radius.
-
+* **7. Hyperplan:**: Run hyperplan. Launch hostile agents to prove plan is perfect.
+* 
 ### Phase 4: Synthesis & Execution (Building)
-* **7. Oracle:** Deliver a decisive, non-diplomatic implementation direction based on the stress test. Lock the blueprint.
-* **8. Implement:** Enter the tight execution loop (TDD / micro-PRs). Ping-pong tests until the vertical slice is alive.
+* **8. Oracle:** Deliver a decisive, non-diplomatic implementation direction based on the stress test. Lock the blueprint.
+* **9. Implement:** Enter the tight execution loop (TDD / micro-PRs). Ping-pong tests until the vertical slice is alive.
 
 ### Phase 5: Refinement (Polishing)
-* **9. Taste Review:** Apply the **Taste Review Filter**. Judge the elegance, readability, layout, and emotional calmness of the finished code before merging.
+* **10. Taste Review:** Apply the **Taste Review Filter**. Judge the elegance, readability, layout, and emotional calmness of the finished code before merging.

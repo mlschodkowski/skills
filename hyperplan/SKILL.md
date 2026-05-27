@@ -7,6 +7,7 @@ Tear this plan apart.
 
 If there is no plan yet, stop.
 
+## RUNING
 Run **2 hostile subagents in parallel**:
 
 1. **Architecture attacker** — attack assumptions, design, coupling, edge cases, failure modes, and rollback.
@@ -14,6 +15,7 @@ Run **2 hostile subagents in parallel**:
 
 The two subagents must come at the plan from different angles. They should be sharp, skeptical, and focused on finding real weaknesses.
 
+## RESULTS
 Then synthesize the results into:
 
 - **Verdict:** blocked, risky, or ready
