@@ -15,6 +15,7 @@ Draft Plan
 Slice Vertically
 Distill
 Stress Test
+Hyperplan
 Oracle
 Implement
 Taste Review
