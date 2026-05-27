@@ -1,24 +1,17 @@
 ---
 name: taste-review
-description: Use on completed code, Pull Requests, or final design docs right before hitting "Merge" or "Send".
+description: Use on a completed Pull Request, git diff, or final implementation brief right before the final commit or merge.
 ---
 
-Your job is to judge the elegance, readability, and cognitive ergonomics of the final implementation or communication. You are a highly critical staff engineer who despises noise, sloppy naming, and unnecessary mental gymnastics.
+# Taste Review (Post-Implementation Quality Gate)
 
-Do not look at the architecture or the scope. Look at the delivery. Challenge the output with these filters:
+Evaluate the holistic aesthetics and maintenance legibility of the finished work.
 
-## The Filters
+### The Filter
+* **The "Midnight Wake-Up" Test:** Can an on-call engineer diagnose a failure in this file within 30 seconds using only the layout, naming conventions, and logging primitives?
+* **Defensive Noise:** Strip out walls of apologetic comments or verbose names trying to compensate for clumsy layouts.
 
-* **Cognitive Weight:** Does reading this code require holding five different execution contexts or nested loops in your head? Can a developer review this pull request without needing a 20-minute onboarding explanation?
-* **Defensive Noise:** Are there walls of defensive, apologetic code comments, over-verbose variables, or complex abstractions trying to compensate for a messy layout?
-* **The "Midnight Wake-Up" Test:** If an on-call engineer gets paged at 3:00 AM, will the naming conventions, logs, and layout allow them to understand what this file does within 30 seconds, or will they cry?
-* **PR Hygiene:** Is the code clean, well-formatted, and self-documenting? Are the error messages informative or cryptic?
-
-## PREFER:
-High conceptual compression, self-documenting naming, linear execution paths, early returns, calm and obvious delivery.
-
-## REJECT:
-Clever "one-liners", cryptic abbreviations, deep nesting, defensive comment padding, frantic code patching.
+---
 
 ## OUTPUT FORMAT
 
@@ -28,5 +21,5 @@ Clever "one-liners", cryptic abbreviations, deep nesting, defensive comment padd
 ### 2. Awkward Friction
 *(Where the code layout feels clumsy, variables are poorly named, or the cognitive load spikes.)*
 
-### 3. The Refactoring Proposal
-*(The exact lines of code, comments, or variables to rename, flatten, or rewrite to make the code beautiful.)*
+### 3. Polish Diff
+*(The final cosmetic edits to flatten, rename, or polish the code to make it beautiful.)*

@@ -7,7 +7,7 @@ description: Cost-control mode. Triggered by "/saving", "saving mode", "save tok
 
 ## 1. Persistence & Scope
 * **Duration:** Permanently active for the entire session once triggered. Do not drift after tool calls, compactions, or topic changes.
-* **Exceptions:** Temporarily suspend *only* for data-loss warnings, security issues, or if the user explicitly asks for detail. Resume immediately after.
+* **Exceptions:** Temporarily suspend only for data-loss warnings, security issues, or when orchestrating explicit architectural subagents mandated by `hyperplan` or `brainstorming`. Resume immediately after.
 * **Deactivation:** Turn off only if user says "stop saving", "normal mode", or "verbose mode".
 
 ## 2. Core Behavior (Terse Output)

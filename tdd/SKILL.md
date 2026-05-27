@@ -1,112 +1,70 @@
 ---
 name: tdd
-description: Test-driven development with the red-green-refactor loop for any mainstream language or stack. Use when the user wants test-first development, tracer bullets, integration-style tests, behavior-driven bug fixes, or asks to add or repair functionality in Python, Go, JavaScript/TypeScript, Java, C#, Rust, Ruby, or similar ecosystems. Reach for this skill whenever the user wants to drive implementation from tests instead of coding first.
+description: Test-driven development broken into planning contracts (Pre-Implementation) and execution loops (Construction). Driven entirely from public interfaces and vertical tracer slices.
 ---
 
-# Test-Driven Development
+# Test-Driven Development (TDD)
 
-Use vertical slices. Write one failing test for one observable behavior, make it pass with the smallest reasonable change, then refactor. Repeat.
+Execute TDD in two distinct phases: first as an architectural strategy to bake into the implementation plan, and second as a strict execution loop.
 
-Test behavior through public interfaces, not implementation details. Prefer integration-style tests that exercise real code paths using the project's normal tools and idioms. A good test survives internal refactors. A bad test breaks because you renamed a helper, mocked your own internals, or asserted how the code works instead of what it does.
+> **Architectural Guardrail:** You must align all test strategies, interface boundaries, and mocking setups with the repository standard defined locally in `skills/programming/principles.md`. Do not build decoupled mocks or complex interfaces outside of those boundary rules.
 
-Match the project you're in. Use the existing test runner, assertion style, naming conventions, and build workflow whether that means `pytest`, `go test`, `cargo test`, `JUnit`, `RSpec`, `vitest`, or something else.
+---
 
-See [tests.md](tests.md) for examples, [mocking.md](mocking.md) for boundary-mocking guidance, and [interface-design.md](interface-design.md) for interface design.
+## PHASE 1: Strategy & Contract Design (Incorporate into Plan)
+Do this *before* any implementation code is written. Use this step to anchor your planning phase in concrete code design.
 
-## Anti-Pattern: Horizontal Slices
+1. **Interface Contract:** Define the exact public interface signatures, types, and module entry points. Keep modules deep (small interface, heavy implementation).
+2. **Behavior Checklist:** List the explicit, user-observable behaviors that represent success. Do not list implementation steps; list behavior inputs and expected outcomes.
+3. **Boundary Isolation:** Identify system boundaries (external APIs, time, DB) that require dependency injection. Confirm no internal logic will be mocked.
 
-Do not write all tests first and all implementation second. That turns RED into "write every test I can think of" and GREEN into "write all the code," which usually produces brittle, speculative tests.
+*Add this contract and behavior checklist directly into the implementation plan before moving to Stress Test.*
 
-Why this goes wrong:
+---
 
-- You test imagined behavior instead of the next real behavior.
-- You lock in shapes and signatures before learning what the code needs.
-- Tests stop being sensitive to the user-facing behavior that matters.
-- You lose the feedback loop that makes TDD useful.
+## PHASE 2: Execution Loop (Construction)
+Run this loop iteratively for each behavior defined in your Phase 1 checklist.
 
-**Correct approach**: Vertical slices via tracer bullets. One test → one implementation → repeat. Each test responds to what you learned from the previous cycle. Because you just wrote the code, you know exactly what behavior matters and how to verify it.
+              ┌─────────────────────────┐
+              ▼                         │
+[ RED ] ──> [ GREEN ] ──> [ DISTILL & REFACTOR ]
 
-```
-WRONG (horizontal):
-  RED:   test1, test2, test3, test4, test5
-  GREEN: impl1, impl2, impl3, impl4, impl5
+1. **Tracer Bullet:** Select the thinnest vertical behavior from your checklist. Write a single test that fails (RED).
+2. **Minimal Code:** Write the absolute bare minimum code required to make that specific test pass (GREEN). No speculative features or "just-in-case" flexibility.
+3. **Distill & Refactor:** **CRITICAL GATE.** The moment the test turns green, immediately invoke the `distill` skill on your new code. Use the refactoring triggers locally defined in `skills/programming/principles.md` to flatten logic, remove indirection, and achieve clean, linear primitives before moving to the next behavior.
 
-RIGHT (vertical):
-  RED→GREEN: test1→impl1
-  RED→GREEN: test2→impl2
-  RED→GREEN: test3→impl3
-  ...
-```
+---
 
-## Workflow
+## TEST CALIBRATION
 
-### 1. Planning
+### Good Tests (Integration-style, Observable Behavior)
+Tests public interfaces, describes WHAT the system does, and survives internal refactoring.
+```python
+# GOOD: Tests observable behavior via public API
+def test_user_can_checkout_with_valid_cart():
+    cart = create_cart()
+    cart.add(product)
+    result = checkout(cart, payment_method)
+    assert result.status == "confirmed"
+    ```
 
-Before writing code:
+### Bad Tests (Implementation-detail Coupled)
+Mocks internal collaborators, asserts on call order/counts, or tests private methods. Breaks during minor refactoring even if behavior remains correct.
 
-- Confirm the public interface you are changing or adding.
-- Confirm which behaviors matter most and what order to tackle them in.
-- Design interfaces for [testability](interface-design.md).
-- Look for chances to create [deep modules](deep-modules.md).
-- List behaviors to test, not implementation steps.
-- Get user approval on the plan.
-
-Ask: "What should the public interface look like? Which behaviors are most important to test?"
-
-You cannot test everything. Focus on critical paths, risky behavior, and logic the user actually cares about.
-
-### 2. Tracer Bullet
-
-Write one test that proves one thing about the system end to end:
-
-```
-RED:   Write test for first behavior → test fails
-GREEN: Write minimal code to pass → test passes
+```js
+// BAD: Coupled to internal structure and mocking own code
+test("checkout calls paymentService.process", async () => {
+    const mockPayment = { process: vi.fn() };
+    await checkout(cart, mockPayment);
+    expect(mockPayment.process).toHaveBeenCalledWith(cart.total);
+});
 ```
 
-This is your tracer bullet. It proves the path works and gives you a reliable place to grow from.
+Checklist Per Cycle:
+[ ] Behavior is defined in the plan's checklist before coding.
 
-Example behaviors:
+[ ] Test uses the public interface only (zero internal mocking).
 
-- `checkout with valid cart returns confirmed order`
-- `Parse("42") returns 42 with no error`
-- `POST /users creates a retrievable user`
+[ ] Code written is the absolute minimum to pass.
 
-### 3. Incremental Loop
-
-For each remaining behavior:
-
-```
-RED:   Write next test → fails
-GREEN: Minimal code to pass → passes
-```
-
-Rules:
-
-- One test at a time
-- Only enough code to pass current test
-- Don't anticipate future tests
-- Keep tests focused on observable behavior
-- Keep the project's test runner, type checker, and formatter happy as you go
-
-### 4. Refactor
-
-After the current test is green, look for [refactor candidates](refactoring.md):
-
-- [ ] Extract duplication
-- [ ] Deepen modules (move complexity behind simple interfaces)
-- [ ] Apply SOLID principles where natural
-- [ ] Consider what new code reveals about existing code
-- [ ] Run tests after each refactor step
-
-**Never refactor while RED.** Get to GREEN first.
-
-## Checklist Per Cycle
-
-```
-[ ] Test describes behavior, not implementation
-[ ] Test uses public interface only
-[ ] Test would survive internal refactor
-[ ] Code is minimal for this test
-[ ] No speculative features added
-```
+[ ] distill was executed immediately upon hitting GREEN.
