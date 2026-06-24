@@ -1,124 +1,124 @@
 ---
 name: git-commit
-description: 'Execute git commit with conventional commit message analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions "/commit". Supports: (1) Auto-detecting type and scope from changes, (2) Generating conventional commit messages from diff, (3) Interactive commit with optional type/scope/description overrides, (4) Intelligent file staging for logical grouping'
+description: 'Execute git commit with Scoped Commits analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions "/commit". Supports: (1) Mandatory scope auto-detection based on file paths and architectural domains, (2) Generating scoped conventional commit messages from diffs, (3) Interactive commits with manual scope overrides, (4) Intelligent file staging grouped by logical scope.'
 license: MIT
 allowed-tools: Bash
 ---
 
-# Git Commit with Conventional Commits
+# Git Commit with Scoped Commits
 
 ## Overview
 
-Create standardized, semantic git commits using the Conventional Commits specification. Analyze the actual diff to determine appropriate type, scope, and message.
+Create highly structured, semantic git commits using the **Scoped Commits** specification (built on top of Conventional Commits). Every commit must explicitly map to a defined **scope** representing the specific module, package, or architectural layer being modified, ensuring clear repository history and automated changelogs.
 
-## Conventional Commit Format
+---
+
+## Scoped Commit Format
 
 ```
-<type>[optional scope]: <description>
+<scope>: <description>
 
 [optional body]
 
 [optional footer(s)]
+
 ```
 
-## Commit Types
+> **Note:** Unlike standard conventional commits where the scope is optional, Scoped Commits treat the `<scope>` as a **required** component to maintain granular traceability across the codebase.
 
-| Type       | Purpose                        |
-| ---------- | ------------------------------ |
-| `feat`     | New feature                    |
-| `fix`      | Bug fix                        |
-| `docs`     | Documentation only             |
-| `style`    | Formatting/style (no logic)    |
-| `refactor` | Code refactor (no feature/fix) |
-| `perf`     | Performance improvement        |
-| `test`     | Add/update tests               |
-| `build`    | Build system/dependencies      |
-| `ci`       | CI/config changes              |
-| `chore`    | Maintenance/misc               |
-| `revert`   | Revert commit                  |
+---
+
+## Scope Rules & Detection
+
+The `<scope>` must accurately reflect the module or area of the codebase being changed.
+
+### 1. Determining the Scope
+
+* **Monorepos / Workspaces:** Use the specific package or application directory name (e.g., `server`, `client`, `shared-ui`).
+* **Polyrepos / Single Apps:** Use the underlying architectural layer, module, or component group (e.g., `auth`, `db`, `api`, `views`).
+* **Cross-cutting / Global:** Use `global`, `root`, or `repo` only if the changes genuinely span across all boundaries without a primary target.
+
+### 2. Multi-Scope Changes
+
+If a change affects multiple distinct scopes, it should ideally be broken down into **separate, isolated commits**. If inseparable, use a broader parent scope or comma-separated scopes if configured by the project conventions.
+
+---
 
 ## Breaking Changes
 
 ```
-# Exclamation mark after type/scope
-feat!: remove deprecated endpoint
+# Exclamation mark after the mandatory scope
 
 # BREAKING CHANGE footer
-feat: allow config to extend other configs
-
 BREAKING CHANGE: `extends` key behavior changed
+
 ```
+
+---
 
 ## Workflow
 
-### 1. Analyze Diff
+### 1. Analyze Diff & Identify Scope
+
+Examine changed files to group them logically by their respective code paths and determine the appropriate scope.
 
 ```bash
-# If files are staged, use staged diff
-git diff --staged
+# Verify modified and staged files
+git status --porcelain
 
-# If nothing staged, use working tree diff
+# Analyze changes to isolate distinct scopes
+git diff --staged
 git diff
 
-# Also check status
-git status --porcelain
 ```
 
-### 2. Stage Files (if needed)
+### 2. Stage Files by Scope Boundary
 
-If nothing is staged or you want to group changes differently:
+Do not stage unrelated scopes together. Keep commits atomically scoped.
 
 ```bash
-# Stage specific files
-git add path/to/file1 path/to/file2
+# Stage files belonging to a specific scope/module
+git add src/modules/auth/*
 
-# Stage by pattern
-git add *.test.*
-git add src/components/*
-
-# Interactive staging
+# Interactive staging for precise scope separation
 git add -p
+
 ```
 
-**Never commit secrets** (.env, credentials.json, private keys).
+> ⚠️ **Critical Safety:** NEVER stage or commit sensitive data (`.env`, private keys, local credentials).
 
-### 3. Generate Commit Message
+### 3. Generate the Scoped Commit Message
 
-Analyze the diff to determine:
+Construct the message following these structural criteria:
 
-- **Type**: What kind of change is this?
-- **Scope**: What area/module is affected?
-- **Description**: One-line summary of what changed (present tense, imperative mood, <72 chars)
+* **Scope:** Provide the identified module/package name in parentheses (lowercase, alphanumeric).
+* **Description:** Write a concise, imperative, present-tense summary (e.g., "add integration tests" instead of "added integration tests"), keeping it under 72 characters.
 
 ### 4. Execute Commit
 
 ```bash
-# Single line
-git commit -m "<type>[scope]: <description>"
+# Single-line scoped commit
+git commit -m "foo/bar/baz: handle token expiration gracefully"
 
-# Multi-line with body/footer
+# Multi-line scoped commit with body/footer
 git commit -m "$(cat <<'EOF'
-<type>[scope]: <description>
+ui.foo.bar: implement dynamic dashboard grid
 
-<optional body>
+- Add responsive layout support for mobile viewports
+- Optimize rendering performance for widget heavy views
 
-<optional footer>
+Refs: #892
 EOF
 )"
+
 ```
 
-## Best Practices
-
-- One logical change per commit
-- Present tense: "add" not "added"
-- Imperative mood: "fix bug" not "fixes bug"
-- Reference issues: `Closes #123`, `Refs #456`
-- Keep description under 72 characters
+---
 
 ## Git Safety Protocol
 
-- NEVER update git config
-- NEVER run destructive commands (--force, hard reset) without explicit request
-- NEVER skip hooks (--no-verify) unless user asks
-- NEVER force push to main/master
-- If commit fails due to hooks, fix and create NEW commit (don't amend)
+* **NEVER** update local or global git configurations programmatically.
+* **NEVER** run destructive commands (`git reset --hard`, `git push --force`) without explicit, direct user instructions.
+* **NEVER** skip git hooks (`--no-verify`) unless explicitly forced by the user.
+* **NEVER** force-push directly to protected branches (`main`, `master`, `develop`).
+* If a commit fails due to a pre-commit validation or linter hook, address the underlying code issue and trigger a **new commit** (avoid unexpected amends).
