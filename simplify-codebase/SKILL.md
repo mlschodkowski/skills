@@ -11,6 +11,8 @@ Make the code boring enough that an on-call engineer woken up at night can trace
 
 This is not minimalism by deletion. Keep the abstractions, reuse, tests, and architecture that carry real weight.
 
+Do this relentlessly until the code that you are requested to work on is aimed on (it aligns with the requirements above).
+
 ## Workflow
 
 1. Find the contract.

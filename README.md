@@ -1,31 +1,67 @@
 # skills
 
+My Codex skills.
 
-My codex/copilot skills
+Many started from, or were inspired by, Matt Pocock's skills:
+https://github.com/mattpocock/skills
 
-## Important skills
+This repo keeps my versions. They have narrower triggers, fewer assumptions from other agent runtimes, and more direct instructions.
 
-* grill-me (Relentless interviewing until user and agent reach common understanding) - https://github.com/mattpocock/skills/tree/main/skills/productivity/grill-me
-* caveman (talk like caveman, preserves tokens, reduces verbosity of an agent) - https://github.com/mattpocock/skills/tree/main/skills/productivity/caveman
-* handoff (dump current session to file so next session can continue the same work) - https://github.com/mattpocock/skills/tree/main/skills/productivity/handoff
-* grill-with-docs (the same as grill-me, but during exploration it discovers the domain and creates a dictionary/language which should be curated and sharded with an agent) - https://github.com/mattpocock/skills/tree/main/skills/engineering/grill-with-docs
-* improve-codebase-architecture (applies the Pragmatic Programmer's approach to create deep modules with interfaces, instead of multiple shallow modules) - https://github.com/mattpocock/skills/tree/main/skills/engineering/improve-codebase-architecture
-* tdd (apply test-driven-development) - https://github.com/mattpocock/skills/tree/main/skills/engineering/tdd
+## Core engineering skills
 
-## Valuable repositories to look at
+- `diagnose` - find the real cause of hard bugs, then fix and regression-test it.
+- `simplify-codebase` - make code easier to trace during an incident without changing behavior or damaging useful architecture.
+- `tdd` - use public-interface tests and small red/green loops.
+- `distill` - remove speculative infrastructure, boilerplate, and premature abstractions from plans or green code.
+- `slice-it-vertically` - cut a plan into the thinnest useful end-to-end slice.
+- `stress-test-plan` - review a design for coupling, fragile state, and hidden blast radius.
+- `review` - review a diff on two axes: documented standards and requested spec.
+- `taste-review` - final naming, formatting, and ergonomics pass before commit or merge.
+- `zoom-out` - map a code area from one level higher when the local details are unclear.
 
-* https://github.com/mattpocock/skills (a lot of skills in this repository are direct copy from Matt's repo)
+## Planning and decision skills
 
-## Andrej Karpathy's stuff
+- `brainstorming` - shape unclear product, design, architecture, or feature ideas before implementation.
+- `grill-me` - question a plan or idea until the decision tree is clear.
+- `hyperplan` - run hostile plan review from multiple angles.
+- `oracle` - ask for a final go/no-go decision.
+- `flow-map` - show the full engineering gauntlet when I want the whole process visible.
 
-Andrej is an AI Researcher and co-founder of OpenAI, recently joined Anthropic)
+## Workflow skills
 
-* https://github.com/karpathy
-* https://github.com/multica-ai/andrej-karpathy-skills
+- `git-commit` - create scoped commits with a clean message.
+- `handoff` - write a compact handoff for the next session.
+- `saving` - reduce token use and verbosity.
+- `adr` - draft Architecture Decision Records from approved plans or implementation briefs.
 
-## Books and patterns
+## Writing skills
 
-* Pragmatic Programmer (tdd, vertical slices, ubiquitous-language, tracer-bullet) https://github.com/lighthousand/books/blob/master/the-pragmatic-programmer.pdf
-* Repository of valuable free books https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-subjects.md
+- `plain-language` - simplify and humanize general prose while keeping meaning and voice.
+- `plain-tech-language` - simplify and humanize technical prose for engineers, runbooks, PRs, ADRs, and incident notes.
+- `writing-great-skills` - review and improve skills with predictable triggers, pruning, and bad-skill-smell checks.
 
+## Other local skills
 
+- `audit-loop` - audit-oriented loop kept from earlier workflow experiments.
+- `karpathy-guidelines` - Karpathy-inspired engineering guidance.
+
+## Changes from Matt Pocock's skills
+
+The upstream repo is the main source of inspiration. These local versions are tuned for my Codex setup:
+
+- Removed unsupported frontmatter and assumptions from other agent runtimes.
+- Reframed `brainstorming` so it is not a required gate before every small task. It now triggers only for unclear product, design, architecture, or feature work.
+- Simplified `review` so it does not depend on another runtime's `Agent` tool or setup commands.
+- Simplified `handoff` frontmatter while keeping the behavior.
+- Tightened `zoom-out` into a small context-mapping skill.
+- Added `simplify-codebase` for on-call readability: preserve behavior, keep useful abstractions, and make the main path easy to trace.
+- Merged `humanizer` into `plain-language` and `plain-tech-language`, so plain rewriting also removes AI-writing tells. The full pattern catalog now lives in each skill's `references/ai-writing-patterns.md`.
+- Added `writing-great-skills` for pruning, splitting, validating, and spotting bad skill smells.
+- Removed generic `refactor` because `simplify-codebase` better matches how I want code cleanup done.
+- Removed `algorithmic-art` because it is not part of my normal engineering workflow.
+
+## Reference links
+
+- Matt Pocock skills: https://github.com/mattpocock/skills
+- Pragmatic Programmer notes and patterns: https://github.com/lighthousand/books/blob/master/the-pragmatic-programmer.pdf
+- Free programming books: https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-subjects.md

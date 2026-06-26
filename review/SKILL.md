@@ -10,9 +10,7 @@ Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 - **Standards** — does the code conform to this repo's documented coding standards?
 - **Spec** — does the code faithfully implement the originating issue / PRD / spec?
 
-Both axes run as **parallel sub-agents** so they don't pollute each other's context, then this skill aggregates their findings.
-
-The issue tracker should have been provided to you — run `/setup-matt-pocock-skills` if `docs/agents/issue-tracker.md` is missing.
+Keep the two axes separate so standards findings do not hide spec findings.
 
 ## Process
 
@@ -26,7 +24,7 @@ Capture the diff command once: `git diff <fixed-point>...HEAD` (three-dot, so th
 
 Look for the originating spec, in this order:
 
-1. Issue references in the commit messages (`#123`, `Closes #45`, GitLab `!67`, etc.) — fetch via the workflow in `docs/agents/issue-tracker.md`.
+1. Issue references in the commit messages (`#123`, `Closes #45`, GitLab `!67`, etc.) — fetch them with the repo's available CLI or browser tools when access is available.
 2. A path the user passed as an argument.
 3. A PRD/spec file under `docs/`, `specs/`, or `.scratch/` matching the branch name or feature.
 4. If nothing is found, ask the user where the spec is. If they say there isn't one, the **Spec** sub-agent will skip and report "no spec available".
@@ -44,27 +42,30 @@ Anything in the repo that documents how code should be written. Common locations
 
 Collect the list of files. The **Standards** sub-agent will read them.
 
-### 4. Spawn both sub-agents in parallel
+### 4. Run the two review passes
 
-Send a single message with two `Agent` tool calls. Use the `general-purpose` subagent for both.
+Run the Standards pass and the Spec pass as separate pieces of work. If sub-agent tools are available, use them in parallel. If not, do the two passes yourself in this order:
 
-**Standards sub-agent prompt** — include:
+**Standards pass**
 
-- The full diff command and commit list.
-- The list of standards-source files you found in step 3.
-- The brief: "Read the standards docs. Then read the diff. Report — per file/hunk where relevant — every place the diff violates a documented standard. Cite the standard (file + the rule). Distinguish hard violations from judgement calls. Skip anything tooling enforces. Under 400 words."
+- Read the standards-source files from step 3.
+- Read the diff.
+- Report every place the diff violates a documented standard. Cite the standard file and the changed file or hunk.
+- Distinguish hard violations from judgement calls.
+- Skip anything tooling already enforces.
 
-**Spec sub-agent prompt** — include:
+**Spec pass**
 
-- The diff command and commit list.
-- The path or fetched contents of the spec.
-- The brief: "Read the spec. Then read the diff. Report: (a) requirements the spec asked for that are missing or partial; (b) behaviour in the diff that wasn't asked for (scope creep); (c) requirements that look implemented but where the implementation looks wrong. Quote the spec line for each finding. Under 400 words."
+- Read the spec source.
+- Read the diff.
+- Report requirements that are missing or partial, behavior that was not requested, and implementation that looks wrong despite matching the words of the spec.
+- Quote or cite the spec line for each finding.
 
-If the spec is missing, skip the Spec sub-agent and note this in the final report.
+If the spec is missing, skip the Spec pass and note this in the final report.
 
 ### 5. Aggregate
 
-Present the two reports under `## Standards` and `## Spec` headings, verbatim or lightly cleaned. Do **not** merge or rerank findings — the two axes are deliberately separate so the user can see them independently.
+Present the two reports under `## Standards` and `## Spec` headings. Do **not** merge or rerank findings — the two axes are deliberately separate so the user can see them independently.
 
 End with a one-line summary: total findings per axis, and the worst single issue (if any) flagged.
 

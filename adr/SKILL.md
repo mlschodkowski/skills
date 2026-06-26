@@ -1,6 +1,6 @@
 ---
 name: adr
-description: Generate a new Architecture Decision Record (ADR) from an existing plan, approved design, or implementation brief and the local docs/decisions patterns. Use when the user wants to turn a plan into an ADR or capture a design decision in docs/decisions/. Keep it concise by default.
+description: Generate a new Architecture Decision Record (ADR) from an existing plan, approved design, or implementation brief using Allegro conventions and the local docs/decisions patterns. Use when the user wants to turn a plan into an ADR or capture a design decision in docs/decisions/. Keep it concise by default.
 ---
  
 Generate the ADR from the plan the user already provided. Do not ask follow-up questions. If something important is missing, infer a reasonable default and make the assumption explicit in the draft.
