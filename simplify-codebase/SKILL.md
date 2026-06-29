@@ -1,6 +1,6 @@
 ---
 name: simplify-codebase
-description: Simplify code for emergency readability without changing behavior, weakening reuse, or damaging architecture. Use when the user asks to simplify, reduce complexity, flatten control flow, remove boilerplate, make code on-call friendly, clean up a codebase, or review/refactor code specifically for clarity under pressure.
+description: Simplify code and tests for emergency readability without changing behavior, weakening reuse, or damaging architecture. Use when the user asks to simplify/refactor code, make code or tests on-call friendly, remove boilerplate or test noise, reduce implementation-coupled tests, or improve behavior-focused coverage.
 ---
 
 # Simplify Codebase
@@ -55,6 +55,23 @@ Do this relentlessly until the code that you are requested to work on is aimed o
 - Keep logs and metrics operational. Simplification must not remove the breadcrumbs needed during an incident.
 - Use standard library and language idioms before custom frameworks. In Go and C-like code, prefer small functions, explicit ownership, clear error handling, and table-driven cases over clever generic machinery.
 
+## Boring Test Rules
+
+- Keep tests that describe public behavior, business rules, failure modes, compatibility, or a real regression.
+- Remove or rewrite tests that only prove mocks were called, private helpers were arranged a certain way, or implementation steps happened without checking a useful outcome.
+- Prefer fewer behavior-level tests over many narrow helper tests when the helper has no independent contract.
+- Keep focused helper tests when the helper owns parsing, rendering, retry policy, permissions, deterministic time, serialization, or another real boundary.
+- Collapse scenario piles that execute the same path and assert the same result. Keep one representative path, then add cases only for distinct branches, boundaries, errors, data shapes, permissions, or regressions.
+- When deleting a test, name what behavior is still covered elsewhere or why the old assertion had no behavioral value.
+
+## Coverage Discipline
+
+- Treat coverage as execution reachability, not proof of test quality. A line is covered when the runtime executes it.
+- Improve coverage by finding the uncovered lines or branches first, then adding the smallest behavior-level test that reaches them.
+- Do not add many cases that run over the same lines with the same assertions. Repeated traversal is noise unless it reaches a new branch, boundary, invariant, or failure mode.
+- Prefer branch and value coverage over case count. Each added case should explain which new path or rule it covers.
+- Do not write tests whose only value is raising a percentage while asserting implementation details.
+
 ## Good Deletions
 
 Delete code when it is:
@@ -63,7 +80,8 @@ Delete code when it is:
 - a pass-through wrapper with no policy, ownership, retry, logging, transaction, authorization, or compatibility role;
 - duplicated branch logic that can become one named decision;
 - configuration or extension machinery with no real variation;
-- comments that restate code instead of preserving a non-obvious business rule.
+- comments that restate code instead of preserving a non-obvious business rule;
+- tests that duplicate the same execution path without checking a new behavior, branch, boundary, or regression.
 
 ## Bad Deletions
 
@@ -73,6 +91,7 @@ Do not delete code just because it is verbose when it:
 - isolates a dependency, side effect, or failure boundary;
 - preserves backward compatibility;
 - makes testing deterministic;
+- protects behavior that would otherwise be untested;
 - carries observability needed for production support;
 - matches a local architecture pattern used elsewhere.
 
@@ -85,6 +104,8 @@ Before finishing, answer these questions in your own head and reflect any failur
 - Are failures explicit and distinguishable?
 - Did reuse improve or stay intact?
 - Did the architecture get clearer rather than flatter for its own sake?
+- Do remaining tests assert behavior instead of implementation shape?
+- Did added or kept tests reach a distinct path, boundary, or rule?
 - Did tests or inspection prove behavior stayed the same?
 
 If any answer is no, continue simplifying or state the remaining risk clearly.
