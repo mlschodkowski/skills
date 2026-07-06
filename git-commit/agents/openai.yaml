@@ -1,0 +1,4 @@
+interface:
+  display_name: "Git Commit"
+  short_description: "Create scoped commits from local changes"
+  default_prompt: "Use $git-commit to stage the right files and create a scoped commit."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zoom Out"
+  short_description: "Explain unfamiliar code from a higher level"
+  default_prompt: "Use $zoom-out to explain how this code area fits into the larger system."

@@ -1,6 +1,6 @@
 ---
 name: simplify-codebase
-description: Simplify code and tests for emergency readability without changing behavior, weakening reuse, or damaging architecture. Use when the user asks to simplify/refactor code, make code or tests on-call friendly, remove boilerplate or test noise, reduce implementation-coupled tests, or improve behavior-focused coverage.
+description: Simplify code and tests for emergency readability without changing behavior, weakening reuse, or damaging architecture. Use when the user asks to simplify/refactor code, apply clean code, use Robert C. Martin or Uncle Bob Clean Code principles, make code or tests on-call friendly, remove boilerplate or test noise, reduce implementation-coupled tests, or improve behavior-focused coverage.
 ---
 
 # Simplify Codebase
@@ -54,6 +54,21 @@ Do this relentlessly until the code that you are requested to work on is aimed o
 - Keep error paths first-class. Do not merge distinct failures into vague fallbacks just to reduce branches.
 - Keep logs and metrics operational. Simplification must not remove the breadcrumbs needed during an incident.
 - Use standard library and language idioms before custom frameworks. In Go and C-like code, prefer small functions, explicit ownership, clear error handling, and table-driven cases over clever generic machinery.
+
+## Clean Code Checks
+
+Use these Robert C. Martin-style checks as pressure points inside the simplification workflow:
+
+- Names reveal intent, abstraction level, domain language, and side effects. Avoid encoded names unless the language or repo convention requires them.
+- Functions do one thing at one abstraction level. Split orchestration from parsing, formatting, persistence, and transport details.
+- Parameter lists stay short. When values travel together, introduce a meaningful data object instead of widening the signature.
+- Flag arguments are a smell. Split the behavior or make the mode explicit in a command, type, or policy object.
+- Functions return results instead of mutating output arguments or surprising callers through hidden side effects.
+- Comments explain non-obvious domain rules, operational caveats, or compatibility traps. Delete comments that restate code, preserve old history, or leave commented-out code behind.
+- Magic values become named constants, enums, domain types, or configuration at the level that owns the meaning.
+- Boundary conditions are explicit: empty input, missing data, invalid state, timeouts, retries, permissions, precision, and external-service failures.
+- Public interfaces stay small and honest. Do not expose knobs, helpers, or extension points with no real caller.
+- Dead code is deleted. Git keeps history; speculative code makes the current system harder to reason about.
 
 ## Boring Test Rules
 

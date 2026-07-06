@@ -1,0 +1,4 @@
+interface:
+  display_name: "Oracle"
+  short_description: "Get a high-reasoning final go or no-go verdict"
+  default_prompt: "Use $oracle to get a definitive final verdict on this plan or implementation."
