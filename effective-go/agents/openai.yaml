@@ -1,0 +1,4 @@
+interface:
+  display_name: "Effective Go"
+  short_description: "Apply idiomatic Go guidance to code work"
+  default_prompt: "Use $effective-go to write, review, or refactor this Go code idiomatically."

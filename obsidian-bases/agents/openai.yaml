@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Bases"
+  short_description: "Create and edit Obsidian Bases views"
+  default_prompt: "Use $obsidian-bases to create or edit this Obsidian Bases file."

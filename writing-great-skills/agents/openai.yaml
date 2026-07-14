@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Great Skills"
+  short_description: "Improve skills for predictable agent behavior"
+  default_prompt: "Use $writing-great-skills to improve this skill's instructions and trigger behavior."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Obsidian Markdown"
+  short_description: "Write Obsidian Markdown with links and callouts"
+  default_prompt: "Use $obsidian-markdown to write this as valid Obsidian-flavored Markdown."

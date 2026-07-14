@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brag"
+  short_description: "Capture accomplishments in an Obsidian brag note"
+  default_prompt: "Use $brag to capture this accomplishment in my Obsidian brag document."
