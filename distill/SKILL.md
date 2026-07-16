@@ -1,32 +1,56 @@
 ---
 name: distill
-description: Interrogate a coding plan or newly written green code to ruthlessly burn out future-proofing, indirection, and premature infrastructure.
+description: Distill a coding plan or newly green code to remove premature optimization, unnecessary layers, and needless indirection while preserving the current contract. Use when a user asks to challenge complexity, remove overengineering, or make a plan or implementation smaller and more direct.
 ---
 
-# Distill: Interrogate the Implementation
+# Distill
 
-Attack defensive anxiety masquerading as "scalability," whether inspecting a blueprint or newly green code.
+Distill is a review, not an implementation pass. Find the smallest clear shape that serves today's contract. Report it; edit only when the user explicitly asks to apply the result.
 
-> **The Core Philosophy:** Good code is simple, but simple does not mean easy. True simplicity requires rigorous effort to untangle a problem down to its essential primitives. Do not mistake lazy, unreadable shortcuts for simple design.
+## The earned rule
 
-### The Interrogation
-* **The Monolith Shortcut:** Can a single, boring, linear script or synchronous function replace this entire architecture or freshly written multi-step code today?
-* **The Indirection Tax:** Does this force a developer to jump across multiple files or layers to trace one logic path? (If it's an interface, abstraction, or factory with only one concrete use case: kill it).
-* **Calculated Crashing:** Can we completely skip complex error-handling/retries, let it crash, log it, and manage it manually if it breaks in production?
-* **The Static Illusion:** Can a hardcoded env var, an in-memory dictionary, or a raw JSON blob replace a database schema, ORM layer, or dynamic endpoint for now?
-* **The Dependency Audit:** Are you adding an external library or infra (Redis, queues, new tables) for a problem that standard library primitives or local state can solve?
+Prefer plain functions, simple data objects, concrete dependencies, and visible control flow.
 
-> **The Ultimate Filter:** Is this structure serving *current readability* or *imagined future reuse*? If it's for the future, delete it.
+An object, interface, factory, strategy, configuration knob, dependency, retry, or test case stays only when it earns its cost through a current responsibility or boundary:
 
----
+- ownership, lifecycle, state, or a business invariant;
+- a stable public or compatibility boundary;
+- multiple real implementations or policies that vary now;
+- an external dependency, side effect, or necessary test seam;
+- an existing codebase pattern that makes the surrounding code clearer.
 
-## OUTPUT FORMAT
+Do not keep a layer for imagined reuse, scale, flexibility, or a future mode.
 
-### 1. Code/Structure to Purge
-*(The specific generalizations, premature abstractions, patterns, or infrastructure to shift+delete immediately.)*
+## Review
 
-### 2. The Bare Primitive
-*(The single, linear, skeletal path of code that cleanly delivers the core logic right now. Organized beautifully, but stripped of all architectural fluff.)*
+1. Establish the contract.
+   - Read the entrypoint, callers, tests, data shapes, and operational behavior in scope.
+   - List behavior, errors, observability, security, compatibility, and architecture boundaries that must remain.
+   - Completion: the review can distinguish safe deletion from a contract change.
 
-### 3. Intentionally Left Naive
-*(What is left unoptimized, unhandled, or messy for the sake of immediate speed and feedback.)*
+2. Trace the main path.
+   - Follow one normal path and each meaningful failure or state path.
+   - Mark hops, wrappers, configuration, objects, and dependencies that make the reader build unnecessary state in their head.
+   - Completion: each candidate has a concrete reading or change cost, not a general dislike of abstraction.
+
+3. Apply the earned rule.
+   - Replace unearned indirection with the smallest obvious function-and-data shape.
+   - Prefer direct calls and concrete dependencies. Keep interfaces, factories, strategies, and dependency injection only when their current boundary earns them.
+   - Keep or introduce a small object when it makes ownership, lifecycle, policy, or state clearer, or when it fits the established codebase shape.
+   - Completion: every proposed removal has a simpler replacement or a clear reason to delete it outright.
+
+4. Protect the load-bearing path.
+   - Do not simplify by removing validation, distinct error handling, required retries, logging, metrics, authorization, transactions, compatibility behavior, or useful tests.
+   - Do not recommend replacing durable state, an external integration, or a real failure boundary with a hardcoded value or local state merely to make the design smaller.
+   - Completion: the simpler shape still satisfies the contract from step 1.
+
+## Report
+
+Return only what is useful for a decision:
+
+1. **Remove or collapse** — the exact unearned layers and why they do not earn their cost.
+2. **Keep** — the objects, boundaries, or safeguards that do earn their cost.
+3. **Smallest safe shape** — a concise function-and-data outline of the main path.
+4. **Contract check** — behavior or verification that must remain after applying the change.
+
+If no safe simplification is found, say so plainly.

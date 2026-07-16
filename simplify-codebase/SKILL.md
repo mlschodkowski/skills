@@ -1,126 +1,84 @@
 ---
 name: simplify-codebase
-description: Simplify code and tests for emergency readability without changing behavior, weakening reuse, or damaging architecture. Use when the user asks to simplify/refactor code, apply clean code, use Robert C. Martin or Uncle Bob Clean Code principles, make code or tests on-call friendly, remove boilerplate or test noise, reduce implementation-coupled tests, or improve behavior-focused coverage.
+description: Simplify code and tests for emergency readability without changing behavior, weakening reuse, or damaging architecture. Use when the user asks to simplify/refactor code, apply clean code, make code or tests on-call friendly, remove boilerplate or test noise, reduce implementation-coupled tests, or improve behavior-focused coverage.
 ---
 
 # Simplify Codebase
 
-## Aim
+Make the requested code boring enough that an on-call engineer can trace, change, and trust it. Boring means obvious control flow, simple data, local names, and boundaries that earn their cost.
 
-Make the code boring enough that an on-call engineer woken up at night can trace it, change it, and trust it. Boring means obvious control flow, local names, few moving parts, and preserved boundaries.
+This is not deletion for its own sake. Preserve behavior and the architecture that carries real responsibility.
 
-This is not minimalism by deletion. Keep the abstractions, reuse, tests, and architecture that carry real weight.
+## The earned rule
 
-Do this relentlessly until the code that you are requested to work on is aimed on (it aligns with the requirements above).
+Prefer plain functions, simple data objects, concrete dependencies, and visible state.
+
+Keep or introduce an object, interface, factory, strategy, configuration knob, dependency, retry, or test case only when it earns its cost through a current responsibility or boundary:
+
+- ownership, lifecycle, state, or a business invariant;
+- a stable public or compatibility boundary;
+- multiple real implementations or policies that vary now;
+- an external dependency, side effect, or necessary test seam;
+- an existing codebase pattern that makes the surrounding code clearer.
+
+Do not add an abstraction for imagined reuse, scale, flexibility, or a future mode.
 
 ## Workflow
 
 1. Find the contract.
-   - Read the public entrypoints, tests, callers, logs, docs, and data shapes touched by the change.
-   - Name the behavior that must not change before editing.
-   - Completion: every externally visible behavior, side effect, and compatibility concern in scope is listed or intentionally ruled out.
+   - Read the public entrypoints, callers, tests, logs, docs, and data shapes touched by the change.
+   - Name the behavior, side effects, errors, observability, and compatibility concerns that must not change.
+   - Completion: every in-scope external behavior is listed or intentionally ruled out.
 
-2. Mark complexity.
-   - Identify code that forces stack-building in the reader's head: deep nesting, hidden mutation, unclear ownership, boolean mazes, temporal coupling, leaky abstractions, broad helpers, premature configuration, and duplicated branches.
-   - Separate accidental complexity from essential domain or architecture complexity.
-   - Completion: each simplification target has a concrete reason tied to reading, debugging, or change risk.
+2. Mark unearned complexity.
+   - Identify deep nesting, hidden mutation, unclear ownership, boolean mazes, temporal coupling, broad helpers, duplicated branches, and layers that merely rename work.
+   - Use the earned rule to separate accidental complexity from essential domain or architecture complexity.
+   - Completion: each target has a concrete reading, debugging, or change cost.
 
 3. Simplify in small slices.
-   - Prefer straight-line code, guard clauses, table-driven decisions, named intermediate values, small functions, and single-purpose helpers.
-   - Keep data close to the code that owns it.
-   - Collapse indirection that only renames work.
-   - Inline helpers when the call hides more than it explains.
-   - Extract helpers when the name removes a real chunk of mental state.
-   - Completion: each slice is behavior-preserving, reviewable alone, and can be tested or inspected before the next slice.
+   - Prefer straight-line code, guard clauses, named intermediate values, table-driven decisions, and small single-purpose functions.
+   - Keep data close to its owner. Inline a helper that hides more than it explains; extract one when its name removes real mental state.
+   - Prefer direct calls and concrete dependencies. Keep SOLID-style objects and seams when they express a real current boundary or fit the codebase.
+   - Completion: each slice preserves behavior, is reviewable alone, and is tested or inspected before the next slice.
 
-4. Preserve the load-bearing shape.
-   - Keep stable public APIs unless the user asked to change them.
-   - Keep domain types, module boundaries, dependency injection, error semantics, observability, and reusable seams that are used by real callers or tests.
-   - Do not flatten a design into procedural code when the abstraction expresses ownership, lifecycle, policy, or a business invariant.
-   - Completion: every removed abstraction is proven unused, duplicated, or harmful; every kept abstraction has a clear job.
+4. Preserve the load-bearing path.
+   - Keep stable public APIs unless the user requested a change.
+   - Keep domain types, module boundaries, dependency injection, error semantics, observability, and reuse that earn their cost.
+   - Do not simplify by removing validation, useful error paths, logging, metrics, authorization, transactions, required retries, or compatibility behavior.
+   - Completion: every removed abstraction is unused, duplicated, or unearned; every kept boundary has a clear job.
 
 5. Verify from the outside.
    - Run focused tests first, then broader tests when the blast radius is shared.
-   - Inspect output, logs, generated payloads, migrations, or CLI text when those are part of the contract.
-   - Completion: verification covers the public behavior named in step 1, or the final answer states the exact gap.
+   - Inspect output, logs, generated payloads, migrations, or CLI text when they are part of the contract.
+   - Completion: verification covers the contract from step 1, or the final response states the exact gap.
 
 ## Boring Code Rules
 
-- Keep nesting shallow. Aim for at most two levels inside a function. Use early returns, extracted decisions, or `match`/switch-style dispatch when branches grow.
-- Make state visible. Prefer explicit values over hidden mutation, global reads, or control hidden in callbacks.
-- Make names do work. A good name should let the reader skip opening a helper. If it cannot, the helper may be the wrong shape.
-- Prefer local reasoning. A reader should not need to inspect five files to understand one branch.
-- Reduce concepts before reducing lines. Shorter code that hides policy is worse than longer code with obvious ownership.
-- Keep error paths first-class. Do not merge distinct failures into vague fallbacks just to reduce branches.
-- Keep logs and metrics operational. Simplification must not remove the breadcrumbs needed during an incident.
-- Use standard library and language idioms before custom frameworks. In Go and C-like code, prefer small functions, explicit ownership, clear error handling, and table-driven cases over clever generic machinery.
+- Keep nesting shallow with guard clauses or clear dispatch.
+- Make state and ownership visible. Avoid hidden mutation, global reads, and callback-driven control flow unless the boundary earns them.
+- Use names that reveal intent, domain language, and side effects.
+- Prefer local reasoning. A reader should not need to open several files to understand an ordinary branch.
+- Reduce concepts before reducing lines. Obvious ownership is better than compressed code that hides policy.
+- Keep failures distinct and operational. Error paths, logs, and metrics are part of the code's contract.
+- Prefer language and standard-library idioms over custom machinery. In Go/C-like code, favor small functions, explicit ownership, clear error handling, simple structs, and table-driven cases.
 
-## Clean Code Checks
+## Tests and Coverage
 
-Use these Robert C. Martin-style checks as pressure points inside the simplification workflow:
-
-- Names reveal intent, abstraction level, domain language, and side effects. Avoid encoded names unless the language or repo convention requires them.
-- Functions do one thing at one abstraction level. Split orchestration from parsing, formatting, persistence, and transport details.
-- Parameter lists stay short. When values travel together, introduce a meaningful data object instead of widening the signature.
-- Flag arguments are a smell. Split the behavior or make the mode explicit in a command, type, or policy object.
-- Functions return results instead of mutating output arguments or surprising callers through hidden side effects.
-- Comments explain non-obvious domain rules, operational caveats, or compatibility traps. Delete comments that restate code, preserve old history, or leave commented-out code behind.
-- Magic values become named constants, enums, domain types, or configuration at the level that owns the meaning.
-- Boundary conditions are explicit: empty input, missing data, invalid state, timeouts, retries, permissions, precision, and external-service failures.
-- Public interfaces stay small and honest. Do not expose knobs, helpers, or extension points with no real caller.
-- Dead code is deleted. Git keeps history; speculative code makes the current system harder to reason about.
-
-## Boring Test Rules
-
-- Keep tests that describe public behavior, business rules, failure modes, compatibility, or a real regression.
-- Remove or rewrite tests that only prove mocks were called, private helpers were arranged a certain way, or implementation steps happened without checking a useful outcome.
-- Prefer fewer behavior-level tests over many narrow helper tests when the helper has no independent contract.
-- Keep focused helper tests when the helper owns parsing, rendering, retry policy, permissions, deterministic time, serialization, or another real boundary.
-- Collapse scenario piles that execute the same path and assert the same result. Keep one representative path, then add cases only for distinct branches, boundaries, errors, data shapes, permissions, or regressions.
-- When deleting a test, name what behavior is still covered elsewhere or why the old assertion had no behavioral value.
-
-## Coverage Discipline
-
-- Treat coverage as execution reachability, not proof of test quality. A line is covered when the runtime executes it.
-- Improve coverage by finding the uncovered lines or branches first, then adding the smallest behavior-level test that reaches them.
-- Do not add many cases that run over the same lines with the same assertions. Repeated traversal is noise unless it reaches a new branch, boundary, invariant, or failure mode.
-- Prefer branch and value coverage over case count. Each added case should explain which new path or rule it covers.
-- Do not write tests whose only value is raising a percentage while asserting implementation details.
-
-## Good Deletions
-
-Delete code when it is:
-
-- dead, unreachable, or only defending against impossible states already ruled out by types or earlier validation;
-- a pass-through wrapper with no policy, ownership, retry, logging, transaction, authorization, or compatibility role;
-- duplicated branch logic that can become one named decision;
-- configuration or extension machinery with no real variation;
-- comments that restate code instead of preserving a non-obvious business rule;
-- tests that duplicate the same execution path without checking a new behavior, branch, boundary, or regression.
-
-## Bad Deletions
-
-Do not delete code just because it is verbose when it:
-
-- encodes a domain invariant;
-- isolates a dependency, side effect, or failure boundary;
-- preserves backward compatibility;
-- makes testing deterministic;
-- protects behavior that would otherwise be untested;
-- carries observability needed for production support;
-- matches a local architecture pattern used elsewhere.
+- Keep tests for public behavior, business rules, failures, compatibility, and real regressions.
+- Remove or rewrite tests that only prove mock calls or private implementation steps without a useful outcome.
+- Keep focused tests for real boundaries such as parsing, rendering, retries, permissions, deterministic time, serialization, or external integrations.
+- Add a case only for a distinct branch, boundary, invariant, failure mode, data shape, permission, or regression. Do not repeat the same path for a coverage percentage.
+- When deleting a test, state what still covers the behavior or why the old assertion had no behavioral value.
 
 ## Review Gate
 
-Before finishing, answer these questions in your own head and reflect any failures in the final response:
+Before finishing, check:
 
 - Can a tired engineer find the main path in under a minute?
-- Can they tell which state changes before and after the call?
-- Are failures explicit and distinguishable?
-- Did reuse improve or stay intact?
-- Did the architecture get clearer rather than flatter for its own sake?
-- Do remaining tests assert behavior instead of implementation shape?
-- Did added or kept tests reach a distinct path, boundary, or rule?
-- Did tests or inspection prove behavior stayed the same?
+- Are state changes and failure paths explicit?
+- Does every remaining abstraction earn its cost?
+- Did the code retain real ownership, reuse, and architecture boundaries?
+- Do tests prove behavior and cover distinct paths?
+- Did verification prove the contract stayed the same?
 
-If any answer is no, continue simplifying or state the remaining risk clearly.
+Continue simplifying if an answer is no, or state the remaining risk clearly.
