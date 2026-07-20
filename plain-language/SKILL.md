@@ -7,6 +7,8 @@ description: Simplify and humanize general prose. Use when rewriting non-technic
 
 Rewrite general text so it is easy to understand and sounds like a person wrote it. Keep the meaning, reduce effort for the reader, and remove AI-writing tells without making the result childish or generic.
 
+Apply the mandatory [plain writing standard](../references/plain-writing.md). It takes priority over the style preferences below.
+
 For the full AI-writing rule catalog with examples, read [ai-writing-patterns.md](references/ai-writing-patterns.md) when the text is long, high-stakes, or the first pass still sounds synthetic.
 
 ## Process
@@ -30,8 +32,8 @@ For the full AI-writing rule catalog with examples, read [ai-writing-patterns.md
    - Completion: a reader can scan the text and still get the point.
 
 4. Simplify the language.
-   - Use common words unless a specific term matters.
-   - Prefer active voice.
+   - Use common, short words unless a specific term matters.
+   - Prefer active voice; avoid familiar figures of speech.
    - Replace abstract nouns with concrete wording.
    - Keep a natural rhythm; not every sentence should be the same length.
    - Completion: the text sounds like a person explaining something clearly.

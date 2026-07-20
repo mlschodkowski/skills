@@ -5,6 +5,8 @@ description: Use on a completed Pull Request, git diff, or final implementation 
 
 # Taste Review (Post-Implementation Quality Gate)
 
+Apply the [plain writing standard](../references/plain-writing.md) to the review report. Use direct, evidence-based comments.
+
 Evaluate the holistic aesthetics and maintenance legibility of the finished work.
 
 ### The Filter

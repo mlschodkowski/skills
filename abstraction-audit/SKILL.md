@@ -7,6 +7,8 @@ description: Audit every abstraction created, changed, or explicitly proposed in
 
 Create a concise decision record for each in-scope abstraction. Prefer plain functions, simple data, and concrete dependencies unless an abstraction earns its cost now.
 
+Apply the [plain writing standard](../references/plain-writing.md) to each decision record. State responsibility, cost, evidence, and the decision directly.
+
 ## Scope
 
 Audit every abstraction created, changed, or explicitly proposed by the task, diff, or user. Do not audit every existing abstraction encountered while tracing the code unless it is explicitly brought into scope.

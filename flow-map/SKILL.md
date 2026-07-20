@@ -3,9 +3,11 @@ name: flow-map
 description: Use at the start of a session or phase transition to display the complete agentic engineering gauntlet and provide an exact user-system conversation blueprint.
 ---
 
-# The Engineering Gauntlet: Execution Guide
+# Engineering Workflow Guide
 
-Your job is to print the complete 13-step agentic engineering lifecycle. Remind the developer that our goal is cognitive leverage, intense friction, and small psychological operators—never process bureaucracy.
+Print the 13-step engineering workflow. State that it should help people think clearly and avoid needless process.
+
+Apply the [plain writing standard](../references/plain-writing.md) to any text around the fixed map below. Do not alter the map itself.
 
 Display the following map exactly:
 ```

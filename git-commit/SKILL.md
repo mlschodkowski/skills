@@ -7,6 +7,8 @@ allowed-tools: Bash
 
 # Git Commit with Scoped Commits
 
+Apply the [plain writing standard](../references/plain-writing.md) to commit subjects and bodies. Keep conventional-commit syntax and repository terms exact.
+
 ## Overview
 
 Create highly structured, semantic git commits using the **Scoped Commits** specification (built on top of Conventional Commits). Every commit must explicitly map to a defined **scope** representing the specific module, package, or architectural layer being modified, ensuring clear repository history and automated changelogs.

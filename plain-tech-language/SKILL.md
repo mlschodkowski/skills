@@ -7,6 +7,8 @@ description: Humanize and simplify technical prose. Use when rewriting engineeri
 
 Rewrite text so a tired engineer can understand it quickly and act on it safely.
 
+Apply the mandatory [plain writing standard](../references/plain-writing.md). Keep technical terms when they name an exact command, API, status, file, or concept.
+
 This skill also removes AI-writing tells from engineering prose. For the full rule catalog with examples, read [ai-writing-patterns.md](references/ai-writing-patterns.md) when the text is long, high-stakes, or the first pass still sounds synthetic.
 
 ## Process
@@ -22,8 +24,8 @@ This skill also removes AI-writing tells from engineering prose. For the full ru
    - Completion: every remaining sentence either explains what happened, why it matters, what to check, or what to do.
 
 3. Rewrite in plain language.
-   - Use short sentences and familiar words.
-   - Prefer concrete nouns and active verbs.
+   - Use short sentences and familiar, short words.
+   - Prefer concrete nouns and active verbs; avoid familiar figures of speech.
    - Keep technical names exact: commands, paths, statuses, API fields, classes, error text.
    - Use examples when they make the rule easier to apply.
    - Completion: the text can be scanned without rereading long clauses.

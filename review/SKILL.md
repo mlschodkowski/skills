@@ -5,6 +5,8 @@ description: Review the changes since a fixed point (commit, branch, tag, or mer
 
 # Review
 
+Apply the [plain writing standard](../references/plain-writing.md) to findings and summaries. State the evidence, impact, and needed change without theatrical language.
+
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 
 - **Standards** — does the code conform to this repo's documented coding standards?

@@ -7,6 +7,8 @@ description: Distill a coding plan or newly green code to remove premature optim
 
 Distill is a review, not an implementation pass. Find the smallest clear shape that serves today's contract. Report it; edit only when the user explicitly asks to apply the result.
 
+Apply the [plain writing standard](../references/plain-writing.md) to the report. Name the evidence and proposed change directly.
+
 ## The earned rule
 
 Prefer plain functions, simple data objects, concrete dependencies, and visible control flow.

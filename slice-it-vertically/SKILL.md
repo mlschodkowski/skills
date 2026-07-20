@@ -3,7 +3,9 @@ name: slice-it-vertically
 description: Use when designing features, systems, or tasks to break them down into minimal, vertical, end-to-end working slices that result in a clear, visible increment at every step.
 ---
 
-Apply the "Tracer Bullet" principle from *The Pragmatic Programmer* to this task. 
+Apply the "Tracer Bullet" principle from *The Pragmatic Programmer* to this task.
+
+Apply the [plain writing standard](../references/plain-writing.md) to the proposed slices. Keep the established "Tracer Bullet" term when it helps the user recognize the method.
 
 Do NOT approach this in horizontal layers or isolated phases (e.g., all data/backend first, then all UI/frontend). Instead, break the execution down into vertical, end-to-end slices:
 

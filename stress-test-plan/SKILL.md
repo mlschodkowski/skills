@@ -3,26 +3,32 @@ name: stress-test-plan
 description: Use during design docs or architectural reviews to aggressively expose tight coupling and state fragility.
 ---
 
-Your job is to violently audit a proposed software design against the core laws of high-leverage architecture: Information Hiding, Tight State Control, and Single Sources of Truth. 
+Audit a proposed software design against information hiding, clear state ownership, and single sources of truth.
 
-Do not audit the feature scope (Distill handles that). Audit the systemic bones. Challenge the design with these three structural filters:
+Apply the [plain writing standard](../references/plain-writing.md) to the report. Describe concrete weaknesses and changes.
+
+Do not review feature scope; `distill` covers that. Test the design's structure. Treat each filter as a way the design could fail in production or become costly to change.
 
 ### The Filters
 
-* **The Leak Check:** Is this module "deep" or "shallow"? Call out if internal implementation details—like raw database schemas, third-party library models, or specific SQL types—are leaking into the public API/interface. 
-* **The Blast Radius:** Simulate a massive product pivot. If we swap the underlying database, change an external upstream API payload, or switch from synchronous HTTP to asynchronous events, how many files or modules have to change? If the answer is more than one, the boundaries are wrong.
-* **The State Owner & Limbo:** Trace the data flow with a malice mindset. If a network call drops mid-execution, does the system end up in an invalid state? Are multiple components allowed to mutate the exact same record or in-memory dictionary without a strict, single owner? 
+* **Information hiding:** Check whether a public API exposes database schemas, vendor models, SQL types, transport details, or other implementation choices. Identify every caller that would need to know a private detail. Reject wrappers that merely pass those details through.
+* **Change impact:** Test three changes: replace the database, change an upstream API payload, and move from synchronous HTTP to asynchronous events. For each, trace the files and modules that must change. If a change spreads beyond the boundary that owns it, name the coupling and the boundary that should contain it.
+* **State ownership and failure:** Trace each state change, including retries, timeouts, partial writes, duplicate delivery, and a network failure between steps. Identify the one owner for every record or in-memory state. Flag missing idempotency, unclear rollback or recovery, and any path that can leave invalid or ambiguous state.
 
-### PREFER:
-Low coupling, bounded contexts, strict API contracts, idempotency keys, single sources of truth.
+### Prefer
 
-### REJECT:
-Shared mutable state, ripple-effect architectures, leaking database models to the frontend, "god object" modules.
+Low coupling, bounded contexts, narrow API contracts, idempotency keys, explicit recovery, and one source of truth.
+
+### Reject
+
+Shared mutable state, broad change impact, database models in client-facing APIs, and modules that own unrelated policies or state.
 
 ## OUTPUT FORMAT
 
-### 1. Structural Fractures Found
-*(Where the architecture is fragile, tightly coupled, or vulnerable to data corruption.)*
+### 1. Structural failures
 
-### 2. The Decoupling Action
-*(The exact architectural modification—e.g., adding an abstraction boundary, isolating a state mutation, introducing an idempotency check—to make it resilient.)*
+For each finding: describe the failure or change scenario, cite the design element that causes it, and explain the impact.
+
+### 2. Required design change
+
+State the smallest concrete change that removes or contains the problem. Examples: narrow an API boundary, isolate a state mutation, add an idempotency key, or define recovery after a partial failure.

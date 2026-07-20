@@ -9,6 +9,8 @@ metadata:
 
 # GitHub Patterns
 
+Apply the [plain writing standard](../references/plain-writing.md) to PR titles, bodies, comments, and issue text. Keep commands and GitHub terms exact.
+
 ## Tools
 
 Use `gh` CLI for all GitHub operations. Prefer CLI over GitHub MCP servers for lower context usage.

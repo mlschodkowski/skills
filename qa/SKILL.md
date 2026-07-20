@@ -7,6 +7,8 @@ description: Interactive QA session where user reports bugs or issues conversati
 
 Run an interactive QA session. The user describes problems they're encountering. You clarify, explore the codebase for context, and file GitHub issues that are durable, user-focused, and use the project's domain language.
 
+Apply the [plain writing standard](../references/plain-writing.md) to questions, summaries, and issue bodies. Keep the user's words and exact domain terms where they clarify the behaviour.
+
 ## For each issue the user raises
 
 ### 1. Listen and lightly clarify

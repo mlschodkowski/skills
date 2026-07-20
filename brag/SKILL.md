@@ -5,6 +5,8 @@ description: Interactively capture accomplishments, log wins, track impact, or n
 
 Interactively manage my Obsidian brag document. Assume the default vault. For obisidian manipulation use `obsidian-cli`, `obsidian-bases` and `obsidian-markdown` skills.
 
+Apply the [plain writing standard](../references/plain-writing.md). Keep metrics, scope, and impact specific; do not add promotional language.
+
 Follow this workflow:
 1. **Gather Wins (Conversational):** Ask me simple, open-ended questions one at a time about my recent work. If I want to *rewrite/migrate* an old note instead, read it first while preserving its original meaning and metrics.
 2. **Draft the Entry:** Organize the content into a simple, scannable format: a single `# Notes` header followed by 3–5 concise, single-line bullets outlining what, how, and the why/impact (prefer short phrases separated by commas).

@@ -7,6 +7,8 @@ description: Explore ambiguous product, design, architecture, or feature ideas b
 
 Turn an unclear idea into a concrete design the user can approve. Keep the loop light: discover just enough context, ask the highest-value questions, propose options, and stop when the next action is clear.
 
+Apply the [plain writing standard](../references/plain-writing.md) to questions, options, and the final recommendation.
+
 ## Use This When
 
 - The goal, audience, constraints, or success criteria are unclear.

@@ -7,6 +7,8 @@ description: Architecture design for creating a new project architecture, reshap
 
 Design architecture from the domain outward. The output is a concrete shape the user can implement: modules, boundaries, dependencies, domain model, migration slices, and verification.
 
+Apply the [plain writing standard](../references/plain-writing.md) to plans, decision records, and explanations. Keep terms that name real boundaries or domain concepts.
+
 ## Workflow
 
 1. **Classify the architecture job.**

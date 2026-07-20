@@ -3,7 +3,9 @@ name: hyperplan
 description: Tear apart a plan before implementation by running 2 hostile subagents from orthogonal angles. Use when the user wants to stress-test a plan, spec, or design before writing code, or says "hyperplan".
 ---
 
-Tear this plan apart.
+Find the plan's real weaknesses.
+
+Apply the [plain writing standard](../references/plain-writing.md) to the critique. Be direct without exaggeration.
 
 If there is no plan yet, stop.
 
