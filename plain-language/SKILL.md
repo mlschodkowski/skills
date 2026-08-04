@@ -75,4 +75,4 @@ Note: I kept the claim about X, but the source text does not explain why it is t
 
 ## Boundary
 
-Use `plain-tech-language` instead when the text is engineering-facing and depends on commands, logs, statuses, incidents, PR review, runbooks, ADRs, or operational decisions.
+Use `ste` instead when the text is engineering-facing and depends on commands, logs, statuses, incidents, PR review, runbooks, ADRs, or operational decisions.

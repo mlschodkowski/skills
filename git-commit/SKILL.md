@@ -1,13 +1,13 @@
 ---
 name: git-commit
-description: 'Execute git commit with Scoped Commits analysis, intelligent staging, and message generation. Use when user asks to commit changes, create a git commit, or mentions "/commit". Supports: (1) Mandatory scope auto-detection based on file paths and architectural domains, (2) Generating scoped conventional commit messages from diffs, (3) Interactive commits with manual scope overrides, (4) Intelligent file staging grouped by logical scope.'
+description: 'Use when the user asks to commit changes, create a Git commit, or mentions "/commit"; stage files by scope and write a scoped commit message with an optional STE description.'
 license: MIT
 allowed-tools: Bash
 ---
 
 # Git Commit with Scoped Commits
 
-Apply the [plain writing standard](../references/plain-writing.md) to commit subjects and bodies. Keep conventional-commit syntax and repository terms exact.
+Apply `ste` to commit subjects and bodies. Keep scoped-commit syntax and repository terms exact.
 
 ## Overview
 
@@ -93,8 +93,22 @@ git add -p
 
 Construct the message following these structural criteria:
 
-* **Scope:** Provide the identified module/package name in parentheses (lowercase, alphanumeric).
+* **Scope:** Provide the identified module/package name in the format required by the repository. Use lowercase, exact repository terms when no local convention exists.
 * **Description:** Write a concise, imperative, present-tense summary (e.g., "add integration tests" instead of "added integration tests"), keeping it under 72 characters.
+
+### Short STE Description (Encouraged)
+
+The scoped title is required. Add a short body in ASD-STE100 Simplified Technical English when the title alone does not explain the change, reason, tests, or risk. The body is encouraged for non-trivial changes and optional for a self-explanatory change.
+
+Use short active sentences, direct verbs, consistent terms, and exact technical tokens. Do not rewrite commands, paths, identifiers, status names, or error text.
+
+```text
+<scope>: <imperative title>
+
+What changed: <short factual statement>
+Why: <short reason>
+Tests: <exact test command or honest verification status>
+```
 
 ### 4. Execute Commit
 

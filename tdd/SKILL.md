@@ -7,7 +7,7 @@ description: Test-driven development broken into planning contracts (Pre-Impleme
 
 Execute TDD in two distinct phases: first as an architectural strategy to bake into the implementation plan, and second as a strict execution loop.
 
-> **Architectural Guardrail:** You must align all test strategies, interface boundaries, and mocking setups with the repository standard defined locally in `skills/programming/principles.md`. Do not build decoupled mocks or complex interfaces outside of those boundary rules.
+> **Architectural Guardrail:** Align all test strategies, interface boundaries, and mocking setups with the repository standard in `../principles.md`. Do not build decoupled mocks or complex interfaces outside those boundary rules.
 
 ---
 
@@ -18,7 +18,7 @@ Do this *before* any implementation code is written. Use this step to anchor you
 2. **Behavior Checklist:** List the explicit, user-observable behaviors that represent success. Do not list implementation steps; list behavior inputs and expected outcomes.
 3. **Boundary Isolation:** Identify system boundaries (external APIs, time, DB) that require dependency injection. Confirm no internal logic will be mocked.
 
-*Add this contract and behavior checklist directly into the implementation plan before moving to Stress Test.*
+*Add this contract and behavior checklist directly into the implementation plan. Use `hyperplan` before implementation when architecture or delivery risk is unclear.*
 
 ---
 
@@ -27,11 +27,11 @@ Run this loop iteratively for each behavior defined in your Phase 1 checklist.
 
               ┌─────────────────────────┐
               ▼                         │
-[ RED ] ──> [ GREEN ] ──> [ DISTILL & REFACTOR ]
+[ RED ] ──> [ GREEN ] ──> [ SIMPLIFY & REFACTOR ]
 
 1. **Tracer Bullet:** Select the thinnest vertical behavior from your checklist. Write a single test that fails (RED).
 2. **Minimal Code:** Write the absolute bare minimum code required to make that specific test pass (GREEN). No speculative features or "just-in-case" flexibility.
-3. **Distill & Refactor:** **CRITICAL GATE.** The moment the test turns green, immediately invoke the `distill` skill on your new code. Use the refactoring triggers locally defined in `skills/programming/principles.md` to flatten logic, remove indirection, and achieve clean, linear primitives before moving to the next behavior.
+3. **Simplify & Refactor:** **CRITICAL GATE.** The moment the test turns green, apply `simplify-codebase` to the new code. Use the refactoring triggers in `../principles.md` to flatten logic, remove indirection, and keep only earned abstractions before moving to the next behavior.
 
 ---
 
@@ -67,4 +67,4 @@ Checklist Per Cycle:
 
 [ ] Code written is the absolute minimum to pass.
 
-[ ] distill was executed immediately upon hitting GREEN.
+[ ] simplify-codebase was applied immediately upon hitting GREEN.
