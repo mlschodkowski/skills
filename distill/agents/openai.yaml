@@ -1,4 +1,0 @@
-interface:
-  display_name: "Distill"
-  short_description: "Strip premature complexity from plans and code"
-  default_prompt: "Use $distill to challenge this plan or implementation for unnecessary complexity."

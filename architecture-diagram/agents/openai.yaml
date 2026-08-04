@@ -1,4 +1,0 @@
-interface:
-  display_name: "Architecture Diagram"
-  short_description: "Map codebases into Excalidraw architecture diagrams"
-  default_prompt: "Use $architecture-diagram to map this codebase into an evidence-based Excalidraw architecture diagram."

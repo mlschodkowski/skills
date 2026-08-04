@@ -1,4 +1,0 @@
-interface:
-  display_name: "Note"
-  short_description: "Capture notes and logs in Obsidian"
-  default_prompt: "Use $note to capture this as an Obsidian note or log entry."

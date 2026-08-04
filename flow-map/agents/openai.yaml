@@ -1,4 +1,0 @@
-interface:
-  display_name: "Flow Map"
-  short_description: "Show the full agentic engineering workflow"
-  default_prompt: "Use $flow-map to show the full agentic engineering workflow for this session."

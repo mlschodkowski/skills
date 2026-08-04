@@ -1,4 +1,0 @@
-interface:
-  display_name: "Excalidraw Diagram Generator"
-  short_description: "Create Excalidraw diagrams from plain descriptions"
-  default_prompt: "Use $excalidraw-diagram-generator to create an Excalidraw diagram from this description."

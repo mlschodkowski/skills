@@ -1,4 +1,0 @@
-interface:
-  display_name: "Plain Tech Language"
-  short_description: "Humanize technical prose for engineers"
-  default_prompt: "Use $plain-tech-language to rewrite this technical text so it is simple, concrete, natural, and useful to a tired on-call engineer."

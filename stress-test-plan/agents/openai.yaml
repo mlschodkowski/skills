@@ -1,4 +1,0 @@
-interface:
-  display_name: "Stress Test Plan"
-  short_description: "Audit design plans for coupling and state risk"
-  default_prompt: "Use $stress-test-plan to audit this design for coupling and fragile state."

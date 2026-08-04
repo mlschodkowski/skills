@@ -31,7 +31,7 @@ Run this loop iteratively for each behavior defined in your Phase 1 checklist.
 
 1. **Tracer Bullet:** Select the thinnest vertical behavior from your checklist. Write a single test that fails (RED).
 2. **Minimal Code:** Write the absolute bare minimum code required to make that specific test pass (GREEN). No speculative features or "just-in-case" flexibility.
-3. **Simplify & Refactor:** **CRITICAL GATE.** The moment the test turns green, apply `simplify-codebase` to the new code. Use the refactoring triggers in `../principles.md` to flatten logic, remove indirection, and keep only earned abstractions before moving to the next behavior.
+3. **Simplify & Refactor:** **CRITICAL GATE.** The moment the test turns green, apply `obvious-code` to the new code. Use the refactoring triggers in `../principles.md` to flatten logic, remove indirection, and keep only earned abstractions before moving to the next behavior.
 
 ---
 
@@ -67,4 +67,4 @@ Checklist Per Cycle:
 
 [ ] Code written is the absolute minimum to pass.
 
-[ ] simplify-codebase was applied immediately upon hitting GREEN.
+[ ] obvious-code was applied immediately upon hitting GREEN.

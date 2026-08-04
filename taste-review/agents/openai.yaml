@@ -1,4 +1,4 @@
 interface:
   display_name: "Taste Review"
-  short_description: "Review finished work for maintainability"
-  default_prompt: "Use $taste-review to evaluate the final implementation before commit or merge."
+  short_description: "Evidence-based final maintainability review"
+  default_prompt: "Use $taste-review to review the finished diff and state whether it is ready to merge."

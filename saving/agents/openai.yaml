@@ -1,4 +1,0 @@
-interface:
-  display_name: "Saving"
-  short_description: "Token-saving Codex mode for terse work"
-  default_prompt: "Use $saving to solve this with /caveman lite style and minimal token spend."
