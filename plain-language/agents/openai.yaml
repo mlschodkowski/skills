@@ -1,4 +1,0 @@
-interface:
-  display_name: "Plain Language"
-  short_description: "Simplify and humanize prose clearly"
-  default_prompt: "Use $plain-language to rewrite this text in simple, natural language, remove AI-writing tells, and preserve the meaning."
