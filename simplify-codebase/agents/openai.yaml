@@ -1,4 +1,0 @@
-interface:
-  display_name: "Simplify Codebase"
-  short_description: "Simplify code for on-call readability"
-  default_prompt: "Use $simplify-codebase to simplify this code without changing behavior or weakening architecture."
