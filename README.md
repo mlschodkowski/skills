@@ -26,6 +26,8 @@ Other active skills cover brainstorming, diagnosis, ADRs, Go, Git, GitHub, revie
 
 Use `$skill-name` for direct invocation. Deliberate workflows such as `grill-me`, `tdd`, `hyperplan`, `oracle`, and `to-questionnaire` are user-invoked. Contextual skills can trigger when their description clearly matches the task.
 
+Use `$simple-language` when reader clarity or wording is the problem. It is optional guidance, not a global voice rule.
+
 Skills are composable, not a mandatory pipeline. Use only the path the task needs.
 
 ## Maintenance

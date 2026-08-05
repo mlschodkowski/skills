@@ -7,7 +7,7 @@ description: Use when a completed PR, git diff, commit range, or implementation 
 
 Use for the final review of changed scope. Check whether the work is readable, operable, and maintainable. It does not replace contract, security, performance, or test review.
 
-Apply the [plain writing standard](../references/plain-writing.md). Review only by default; edit files only when the user asks.
+Use `$simple-language` when review findings need clearer wording for the reader. Review only by default; edit files only when the user asks.
 
 ## Review procedure
 

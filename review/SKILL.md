@@ -5,7 +5,7 @@ description: Review the changes since a fixed point (commit, branch, tag, or mer
 
 # Review
 
-Apply the [plain writing standard](../references/plain-writing.md) to findings and summaries. State the evidence, impact, and needed change without theatrical language.
+Use `$simple-language` when findings and summaries need clearer wording for the reader. State the evidence, impact, and needed change without theatrical language.
 
 Two-axis review of the diff between `HEAD` and a fixed point the user supplies:
 

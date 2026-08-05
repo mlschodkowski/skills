@@ -6,7 +6,7 @@ disable-model-invocation: true
 
 Apply the "Tracer Bullet" principle from *The Pragmatic Programmer* to this task.
 
-Apply the [plain writing standard](../references/plain-writing.md) to the proposed slices. Keep the established "Tracer Bullet" term when it helps the user recognize the method.
+Use `$simple-language` when the proposed slices need clearer reader-facing wording. Keep the established "Tracer Bullet" term when it helps the user recognize the method.
 
 Do NOT approach this in horizontal layers or isolated phases (e.g., all data/backend first, then all UI/frontend). Instead, break the execution down into vertical, end-to-end slices:
 

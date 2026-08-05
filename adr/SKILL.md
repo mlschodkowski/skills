@@ -4,7 +4,7 @@ description: Generate a new Architecture Decision Record (ADR) from an existing 
 ---
 Generate the ADR from the plan the user already provided. Do not ask follow-up questions. If something important is missing, infer a reasonable default and make the assumption explicit in the draft.
 
-Apply the [plain writing standard](../references/plain-writing.md) to the ADR while preserving established repository terms and the ADR template.
+Use `$simple-language` when the ADR needs clearer wording for its readers. Preserve established repository terms and the ADR template.
 
 Start by inspecting `docs/decisions/` and mirror the local style before writing.
 

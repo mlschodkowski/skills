@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Review"
+  short_description: "Review changed behavior with evidence"
+  default_prompt: "Use $code-review to review this change for concrete defects and risks."

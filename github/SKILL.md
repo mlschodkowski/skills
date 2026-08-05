@@ -9,7 +9,7 @@ metadata:
 
 # GitHub Patterns
 
-Apply the [plain writing standard](../references/plain-writing.md) to PR titles, bodies, comments, and issue text. Keep commands and GitHub terms exact.
+Use `$simple-language` when drafting PR titles, bodies, comments, and issue text for a specific reader. Keep commands and GitHub terms exact.
 
 ## Tools
 
