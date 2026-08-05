@@ -1,29 +1,24 @@
 ---
 name: oracle
-description: Launch a high-reasoning oracle agent for top-level verification and definitive go/no-go decisions. Use when the user wants a final check, sign-off, verdict, or authoritative review of a plan, design, fix, or implementation, especially before proceeding. Prefer GPT-5.4 and fall back to Opus-4.6.
+description: Use when a plan, design, fix, or implementation needs a final independent sign-off or decisive go/no-go decision.
+disable-model-invocation: true
 ---
 
-Call the Oracle. 
-Instruct the system to route this request to the highest-reasoning, large-context model available in the current environment (e.g., maximum tier reasoning model).
+# Oracle
 
-The Oracle does top-level verification only. It should make a definitive decision, not a fuzzy discussion.
+Use only when the user asks for a final verdict or invokes `$oracle`. The Oracle verifies a concrete artifact; it does not replace brainstorming, design, or implementation review.
 
-If needed, run the Oracle twice:
+1. Inspect the supplied plan, diff, tests, evidence, and stated constraints.
+2. Check correctness, scope, failure paths, verification, and unresolved risks.
+3. Return one decisive result. Do not turn the verdict into a general discussion.
 
-1. first pass: verify the thing
-2. second pass: final sign-off after fixes
+Return exactly:
 
-Return exactly
-
-DECISION: YES|OK|NO_FIX
+```text
+DECISION: GO | GO_WITH_CAVEATS | NO_GO
 WHY: <short rationale>
-Fixes:
-  - fix_1
-  - fix_2
+REQUIRED_CHANGES:
+  - <change>
+```
 
-Decision meanings:
- - YES - good to proceed
- - OK - acceptable, minor concerns only
- - NO_FIX - do not proceed until fixed
-
-Keep it short, final, and decisive.
+Use `GO` when the evidence supports proceeding, `GO_WITH_CAVEATS` when proceeding is acceptable with the listed changes or limits, and `NO_GO` when work must stop until the listed changes are addressed.

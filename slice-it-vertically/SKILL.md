@@ -1,6 +1,7 @@
 ---
 name: slice-it-vertically
-description: Use when designing features, systems, or tasks to break them down into minimal, vertical, end-to-end working slices that result in a clear, visible increment at every step.
+description: Use when the user asks to split a feature, system, or task into minimal end-to-end increments with a visible result at each step.
+disable-model-invocation: true
 ---
 
 Apply the "Tracer Bullet" principle from *The Pragmatic Programmer* to this task.

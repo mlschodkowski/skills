@@ -1,14 +1,20 @@
 ---
 name: grill-me
-description: Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions "grill me".
+description: Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or invokes "grill me".
+disable-model-invocation: true
 ---
 
-Interview me relentlessly about every aspect of this plan until we reach a shared understanding. Walk down each branch of the design tree, resolving dependencies between decisions one-by-one. For each question, provide your recommended answer.
+Interview the user relentlessly until you reach a shared understanding. Map the work as a design tree: every decision branches into the decisions that depend on it.
 
-Briefly explain the behavioral impact of the recommendation: who acts, what happens next, and what the user sees or can do on success or failure. Keep it proportional to the decision.
+Work in rounds. The frontier is every decision whose prerequisites are settled. Ask the whole frontier in one round, then wait for the user's answers before the next round. A question that depends on another open question belongs to a later round.
 
-Ask the questions one at a time.
+Number each question and give a recommended answer. Use this format:
 
-If a question can be answered by exploring the codebase, explore the codebase instead.
+```text
+**<question number>: <question title>**: <question body, including choices when useful>
+-> <your recommended answer>
+```
 
-When every aspect is clear your last question should be asking user if he has anything more to add/any other request.
+Finding facts is the agent's job. Inspect files, tools, and other available evidence instead of asking the user for facts that can be discovered. Dispatch a bounded read-only exploration when that is available. Decisions are the user's; ask them and wait.
+
+Recompute the frontier after each answer round. The session is complete when no branch remains silently assumed. Do not act on the plan until the user confirms shared understanding.

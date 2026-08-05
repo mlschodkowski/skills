@@ -1,13 +1,13 @@
 ---
 name: git-commit
-description: 'Use when the user asks to commit changes, create a Git commit, or mentions "/commit"; stage files by scope and write a scoped commit message with an optional STE description.'
+description: 'Use when the user asks to commit changes, create a Git commit, or mentions "/commit"; stage files by scope and write a scoped commit message with an optional simple-language description.'
 license: MIT
 allowed-tools: Bash
 ---
 
 # Git Commit with Scoped Commits
 
-Apply `ste` to commit subjects and bodies. Keep scoped-commit syntax and repository terms exact.
+Apply `simple-language` to commit subjects and bodies when needed. Keep scoped-commit syntax and repository terms exact.
 
 ## Overview
 
@@ -92,7 +92,7 @@ Construct the message following these structural criteria:
 - **Scope:** Provide the identified module/package name in the format required by the repository. Use lowercase, exact repository terms when no local convention exists.
 - **Description:** Write a concise, imperative, present-tense summary (e.g., "add integration tests" instead of "added integration tests"), keeping it under 72 characters.
 
-### Short STE Description (Encouraged)
+### Short Description (Encouraged)
 
 The scoped title is required. Add a very short body in ASD-STE100 Simplified Technical English when the title alone does not explain the change, reason, tests, or risk.
 

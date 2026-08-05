@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evidence Barrier"
+  short_description: "Evidence before cross-boundary changes"
+  default_prompt: "Use $evidence-barrier before this multi-agent or cross-boundary change."

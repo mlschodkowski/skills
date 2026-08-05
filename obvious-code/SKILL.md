@@ -36,10 +36,5 @@ change.
 
 Examples: [examples.md](references/examples.md).
 
-**REQUIRED SUB-SKILL:** Use `tdd` before behavior changes.
-
-**REQUIRED SUB-SKILL:** Use `abstraction-audit` when creating, changing, or
-proposing an abstraction.
-
-**REQUIRED SUB-SKILL:** Use `ste` when changing comments, documentation, or
-technical reports.
+Use `tdd`, `abstraction-audit`, and `simple-language` only when their own
+triggers match or the user invokes them. Do not force a chain of skills.
