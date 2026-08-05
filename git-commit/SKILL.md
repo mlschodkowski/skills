@@ -23,7 +23,6 @@ Create highly structured, semantic git commits using the **Scoped Commits** spec
 [optional body]
 
 [optional footer(s)]
-
 ```
 
 > **Note:** Unlike standard conventional commits where the scope is optional, Scoped Commits treat the `<scope>` as a **required** component to maintain granular traceability across the codebase.
@@ -36,9 +35,9 @@ The `<scope>` must accurately reflect the module or area of the codebase being c
 
 ### 1. Determining the Scope
 
-* **Monorepos / Workspaces:** Use the specific package or application directory name (e.g., `server`, `client`, `shared-ui`).
-* **Polyrepos / Single Apps:** Use the underlying architectural layer, module, or component group (e.g., `auth`, `db`, `api`, `views`).
-* **Cross-cutting / Global:** Use `global`, `root`, or `repo` only if the changes genuinely span across all boundaries without a primary target.
+- **Monorepos / Workspaces:** Use the specific package or application directory name (e.g., `server`, `client`, `shared-ui`).
+- **Polyrepos / Single Apps:** Use the underlying architectural layer, module, or component group (e.g., `auth`, `db`, `api`, `views`).
+- **Cross-cutting / Global:** Use `global`, `root`, or `repo` only if the changes genuinely span across all boundaries without a primary target.
 
 ### 2. Multi-Scope Changes
 
@@ -53,7 +52,6 @@ If a change affects multiple distinct scopes, it should ideally be broken down i
 
 # BREAKING CHANGE footer
 BREAKING CHANGE: `extends` key behavior changed
-
 ```
 
 ---
@@ -71,7 +69,6 @@ git status --porcelain
 # Analyze changes to isolate distinct scopes
 git diff --staged
 git diff
-
 ```
 
 ### 2. Stage Files by Scope Boundary
@@ -84,7 +81,6 @@ git add src/modules/auth/*
 
 # Interactive staging for precise scope separation
 git add -p
-
 ```
 
 > ⚠️ **Critical Safety:** NEVER stage or commit sensitive data (`.env`, private keys, local credentials).
@@ -93,22 +89,12 @@ git add -p
 
 Construct the message following these structural criteria:
 
-* **Scope:** Provide the identified module/package name in the format required by the repository. Use lowercase, exact repository terms when no local convention exists.
-* **Description:** Write a concise, imperative, present-tense summary (e.g., "add integration tests" instead of "added integration tests"), keeping it under 72 characters.
+- **Scope:** Provide the identified module/package name in the format required by the repository. Use lowercase, exact repository terms when no local convention exists.
+- **Description:** Write a concise, imperative, present-tense summary (e.g., "add integration tests" instead of "added integration tests"), keeping it under 72 characters.
 
 ### Short STE Description (Encouraged)
 
-The scoped title is required. Add a short body in ASD-STE100 Simplified Technical English when the title alone does not explain the change, reason, tests, or risk. The body is encouraged for non-trivial changes and optional for a self-explanatory change.
-
-Use short active sentences, direct verbs, consistent terms, and exact technical tokens. Do not rewrite commands, paths, identifiers, status names, or error text.
-
-```text
-<scope>: <imperative title>
-
-What changed: <short factual statement>
-Why: <short reason>
-Tests: <exact test command or honest verification status>
-```
+The scoped title is required. Add a very short body in ASD-STE100 Simplified Technical English when the title alone does not explain the change, reason, tests, or risk.
 
 ### 4. Execute Commit
 
@@ -126,15 +112,14 @@ ui.foo.bar: implement dynamic dashboard grid
 Refs: #892
 EOF
 )"
-
 ```
 
 ---
 
 ## Git Safety Protocol
 
-* **NEVER** update local or global git configurations programmatically.
-* **NEVER** run destructive commands (`git reset --hard`, `git push --force`) without explicit, direct user instructions.
-* **NEVER** skip git hooks (`--no-verify`) unless explicitly forced by the user.
-* **NEVER** force-push directly to protected branches (`main`, `master`, `develop`).
-* If a commit fails due to a pre-commit validation or linter hook, address the underlying code issue and trigger a **new commit** (avoid unexpected amends).
+- **NEVER** update local or global git configurations programmatically.
+- **NEVER** run destructive commands (`git reset --hard`, `git push --force`) without explicit, direct user instructions.
+- **NEVER** skip git hooks (`--no-verify`) unless explicitly forced by the user.
+- **NEVER** force-push directly to protected branches (`main`, `master`, `develop`).
+- If a commit fails due to a pre-commit validation or linter hook, address the underlying code issue and trigger a **new commit** (avoid unexpected amends).
