@@ -20,12 +20,12 @@ Create highly structured, semantic git commits using the **Scoped Commits** spec
 ```
 <scope>: <description>
 
-[optional body]
+[short body]
 
 [optional footer(s)]
 ```
 
-> **Note:** Unlike standard conventional commits where the scope is optional, Scoped Commits treat the `<scope>` as a **required** component to maintain granular traceability across the codebase.
+> **Note:** Unlike standard conventional commits where the scope is optional, Scoped Commits treat the `<scope>` as a **required** component to maintain granular traceability across the codebase. Short (1-2 sentence) body for commit is encouraged.
 
 ---
 
@@ -94,7 +94,7 @@ Construct the message following these structural criteria:
 
 ### Short Description (Encouraged)
 
-The scoped title is required. Add a very short body in ASD-STE100 Simplified Technical English when the title alone does not explain the change, reason, tests, or risk.
+The scoped title is required. Add a very short simple body (1-2 sentences max), $simple-language.
 
 ### 4. Execute Commit
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "Simple Language"
-  short_description: "Clear technical writing with natural voice"
-  default_prompt: "Use $simple-language to make this technical text clear and concise."
+  short_description: "Clear, natural prose for general and technical readers"
+  default_prompt: "Use $simple-language to make this text clear, natural, and useful."

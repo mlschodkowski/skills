@@ -31,6 +31,10 @@ Verify behavior and output; broaden checks for shared code. Test behavior,
 boundaries, invariants, failures, permissions, and regressions, not private
 steps.
 
+Do not introduce abstractions that don't make sense. For example don't create classes with multiple
+members which combination does not make sense. There should be no code having
+an impossible or improper state.
+
 Ask when behavior, ownership, or boundaries differ; choose the smallest clear
 change.
 

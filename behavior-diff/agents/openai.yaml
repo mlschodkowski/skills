@@ -1,0 +1,4 @@
+interface:
+  display_name: "Behavior Diff"
+  short_description: "Visualize semantic code changes"
+  default_prompt: "Use $behavior-diff to visualize how this code change affects behavior."
