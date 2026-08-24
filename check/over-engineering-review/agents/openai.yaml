@@ -1,0 +1,4 @@
+interface:
+  display_name: "Over-Engineering Review"
+  short_description: "Diff review for complexity to delete"
+  default_prompt: "Use $over-engineering-review on this change. Report only what to cut or replace."

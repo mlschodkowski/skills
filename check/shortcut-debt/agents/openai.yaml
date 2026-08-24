@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shortcut Debt"
+  short_description: "Ledger of limit: shortcut markers"
+  default_prompt: "Use $shortcut-debt to harvest limit markers into a ledger."

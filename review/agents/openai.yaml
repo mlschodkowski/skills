@@ -1,4 +1,0 @@
-interface:
-  display_name: "Review"
-  short_description: "Review diffs against standards and spec"
-  default_prompt: "Use $review to review this diff against the repo standards and the requested spec."

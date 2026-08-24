@@ -1,4 +1,0 @@
-interface:
-  display_name: "Abstraction Audit"
-  short_description: "Justify each added abstraction"
-  default_prompt: "Use $abstraction-audit to review each abstraction in this change."
