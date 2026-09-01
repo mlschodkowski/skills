@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slice It Vertically"
+  short_description: "Break work into vertical end-to-end slices"
+  default_prompt: "Use $slice-it-vertically to break this work into small end-to-end slices."

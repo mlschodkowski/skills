@@ -1,0 +1,4 @@
+interface:
+  display_name: "Over-Engineering Audit"
+  short_description: "Repo-wide complexity delete list"
+  default_prompt: "Use $over-engineering-audit on this repo. Rank what to delete or replace."

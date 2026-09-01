@@ -1,0 +1,4 @@
+interface:
+  display_name: "Oracle"
+  short_description: "Make a final, decisive review decision"
+  default_prompt: "Use $oracle to give a final decision on this plan."

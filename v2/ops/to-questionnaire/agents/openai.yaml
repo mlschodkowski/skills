@@ -1,0 +1,4 @@
+interface:
+  display_name: "To Questionnaire"
+  short_description: "Turn missing context into useful questions"
+  default_prompt: "Use $to-questionnaire to turn this unresolved decision into a questionnaire."

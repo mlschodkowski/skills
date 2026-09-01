@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture Design"
+  short_description: "Design or improve project architecture"
+  default_prompt: "Use $architecture-design to create or improve this project's architecture."

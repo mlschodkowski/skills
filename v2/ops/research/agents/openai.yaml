@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research"
+  short_description: "Research primary sources into cited notes"
+  default_prompt: "Use $research to investigate this question and write cited findings."

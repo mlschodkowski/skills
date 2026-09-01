@@ -1,0 +1,4 @@
+interface:
+  display_name: "ADR"
+  short_description: "Draft concise Architecture Decision Records"
+  default_prompt: "Use $adr to turn this plan into a concise Architecture Decision Record."
