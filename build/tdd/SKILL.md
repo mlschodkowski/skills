@@ -35,7 +35,9 @@ toward implementation.
 3. **Refactor.** Keep the test green. Remove duplication, improve names,
    flatten control flow, and keep only abstractions with a current
    responsibility. See [refactoring.md](refactoring.md) if duplication,
-   feature envy, primitive obsession, or a shallow module appears.
+   feature envy, primitive obsession, or a shallow module appears. Use
+   skills for improving code 'taste' (structure, naming, simplicity) and
+   for simplification.
 4. Repeat for the next behavior.
 
 Code before a failing test means the test has not proved its value.
