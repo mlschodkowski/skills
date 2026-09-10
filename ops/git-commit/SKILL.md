@@ -16,17 +16,19 @@ Keep scoped-commit syntax and repository terms exact.
 ## Message
 
 ```text
-<scope>: <imperative summary>
+<scope>(ticket-number): <imperative summary>
 
 [optional short body]
 
 [optional footer]
 ```
 
-Scope is required. Prefer two levels when the tree has them
+Scope is required. STRONGLY PREFER two levels when the tree has them
 (`auth/session`). In a monorepo, use the package or app directory. In a
 single app, use the layer or module. Use `repo` (or `global` / `root`)
-only when there is no primary home.
+only when there is no primary or only 1 level (`root/auth` or `global/auth` instad of just `auth`)
+
+Ticket number is usually something like "Foo #1234" where 'Foo' is project on github/team on github. ALWAYS ASK FOR THIS BEFORE COMITTING.
 
 Split mixed scopes into separate commits. If they cannot be split, use
 the parent scope or the project's comma-separated convention.
@@ -45,7 +47,7 @@ Breaking change: `scope!: ...` and a `BREAKING CHANGE:` footer.
 
 ```bash
 git commit -m "$(cat <<'EOF'
-auth/session: reject empty bearer token
+auth/session(Fusion #1234): reject empty bearer token
 
 Empty tokens were treated as a missing header and returned 401 with
 the wrong body.

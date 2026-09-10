@@ -29,7 +29,7 @@ why, what changed, how to verify. Do not fill empty template sections.
 6. Otherwise create it:
 
 ```bash
-gh pr create --base <base> --title "<scope>: <summary>" --body "$(cat <<'EOF'
+gh pr create --base <base> --title "<scope>(ticket-number): <summary>" --body "$(cat <<'EOF'
 <why this change exists>
 
 <what moved, at the level a reviewer needs>
@@ -38,6 +38,8 @@ How to verify: <command or check>
 EOF
 )"
 ```
+
+Ticket number is usually something like "Foo #1234" where 'Foo' is project on github/team on github. ALWAYS ASK FOR THIS BEFORE COMITTING.
 
 7. Report the URL.
 
