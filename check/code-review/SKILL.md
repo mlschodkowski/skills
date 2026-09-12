@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: Use when the user asks for a review of changed code—such as a working-tree diff, commit, range, branch, or PR—to check behavior, risks, tests, and maintainability. For complexity-only delete lists, use over-engineering-review instead.
+description: Review a code change for behavioral, risk, test, and maintainability issues. Use for a diff, commit, branch, or PR; use over-engineering-review for complexity-only review.
 disable-model-invocation: true
 ---
 
@@ -24,8 +24,9 @@ Identify the target and its base:
 
 Say which base and head you used. If unclear, ask once.
 
-Recommend a path, then start the full review only after the user chooses
-when they have not already chosen one. One sentence, for example:
+Choose SHALLOW, STANDARD, or DEEP from the change's scope and risk yourself,
+state the choice in one sentence, and begin. Ask only if the target is unclear
+or the chosen depth cannot answer a safety question.
 
 `Review path: STANDARD (the change crosses a public boundary and changes
 control flow, so I will trace normal, failure, lifecycle, and test
@@ -41,8 +42,8 @@ paths).`
   migration, irreversible effects, and release or rollback confidence
   where relevant.
 
-Do not silently expand a shallow review. If the chosen path cannot
-answer a safety question, say why and ask whether to widen it.
+Do not silently expand a shallow review. If a safety question requires a wider
+path, say why and ask whether to widen it.
 
 ## Behavior
 

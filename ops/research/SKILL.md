@@ -1,6 +1,6 @@
 ---
 name: research
-description: Use when a question needs investigation against high-trust primary sources, current docs or API facts, or delegated reading captured as cited Markdown findings.
+description: Investigate a question using current high-trust primary sources and report cited findings. Use when source-backed research is needed.
 ---
 
 # Research

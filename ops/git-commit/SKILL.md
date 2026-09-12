@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: 'Use when the user asks to commit changes, create a Git commit, or mentions "/commit"; stage files by scope and write a scoped commit message with an optional super-normal description.'
+description: Create scoped Git commits when the user explicitly asks to commit changes or invokes /commit.
 license: MIT
 allowed-tools: Bash
 ---
@@ -26,9 +26,9 @@ Keep scoped-commit syntax and repository terms exact.
 Scope is required. STRONGLY PREFER two levels when the tree has them
 (`auth/session`). In a monorepo, use the package or app directory. In a
 single app, use the layer or module. Use `repo` (or `global` / `root`)
-only when there is no primary or only 1 level (`root/auth` or `global/auth` instad of just `auth`)
+only when there is no primary or only 1 level (`root/auth` or `global/auth` instead of just `auth`)
 
-Ticket number is usually something like "Foo #1234" where 'Foo' is project on github/team on github. ALWAYS ASK FOR THIS BEFORE COMITTING.
+Ticket number is usually something like "Foo #1234" where 'Foo' is project on github/team on github. ALWAYS ASK FOR THIS BEFORE COMMITTING.
 
 Split mixed scopes into separate commits. If they cannot be split, use
 the parent scope or the project's comma-separated convention.

@@ -1,10 +1,6 @@
 ---
 name: over-engineering-audit
-description: >
-  Whole-repo scan for unnecessary complexity. Ranked list of what to delete,
-  simplify, or replace with stdlib or platform features. Use when the user
-  asks to audit bloat or find what to delete across the repo. Report only; do
-  not apply fixes. For a single diff, use over-engineering-review.
+description: Audit a repository for unnecessary complexity and report a ranked deletion or simplification list. Use for repo-wide bloat reviews; do not apply fixes. For a single diff, use over-engineering-review.
 disable-model-invocation: true
 ---
 

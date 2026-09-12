@@ -1,6 +1,6 @@
 ---
 name: evidence-barrier
-description: Use when work spans multiple independent investigations, agents, repositories, or risky cross-boundary decisions and changes must wait for shared evidence.
+description: Use when independent investigations or risky cross-boundary decisions must share evidence before a change.
 ---
 
 # Evidence barrier

@@ -1,6 +1,6 @@
 ---
 name: writing-for-agents
-description: Use when creating or editing skills, AGENTS.md, CLAUDE.md, or other documents that an agent must read and apply reliably.
+description: Use when editing AGENTS.md, CLAUDE.md, or a skill so another agent can apply it reliably.
 ---
 
 # Writing for agents

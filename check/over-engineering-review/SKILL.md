@@ -1,11 +1,6 @@
 ---
 name: over-engineering-review
-description: >
-  Review a diff only for unnecessary complexity. List what to delete or
-  replace (extra abstractions, reinvented stdlib, unused flexibility). Use when
-  the user asks to simplify a change, review for over-engineering, or find what
-  to delete in a diff. Does not judge correctness, security, or performance —
-  use code-review for those.
+description: Review a diff only for unnecessary complexity. Use for a delete or simplify list, not for behavior, security, or performance review.
 disable-model-invocation: true
 ---
 

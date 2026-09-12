@@ -1,6 +1,6 @@
 ---
 name: to-questionnaire
-description: Use when the user cannot answer a decision alone and needs to collect missing facts or decisions from a specific person.
+description: Create a questionnaire when the user needs facts or a decision from another person and invokes this workflow.
 disable-model-invocation: true
 ---
 

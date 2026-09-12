@@ -1,6 +1,6 @@
 ---
 name: handoff
-description: Use when the user asks to compact the current task into a handoff document for another agent or session.
+description: Create a compact handoff when the user asks to transfer work to another agent or session.
 disable-model-invocation: true
 ---
 

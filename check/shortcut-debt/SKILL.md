@@ -1,9 +1,6 @@
 ---
 name: shortcut-debt
-description: >
-  Find deliberate shortcut markers in the repo and list them as a debt ledger.
-  Use when the user asks for shortcut debt, limit comments, deferred upgrades,
-  or marked corner cuts. Report only unless asked to write a file.
+description: Find and report deliberate limit, ceiling, or ponytail markers in a repository. Use for a shortcut-debt or deferred-upgrade audit; do not edit unless asked.
 disable-model-invocation: true
 ---
 

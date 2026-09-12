@@ -1,6 +1,6 @@
 ---
 name: git-pr
-description: Use when the user asks to open or update a pull request, create a PR, or mentions "/pr". Push the current branch and open a PR with a scoped title. For merging stacked PRs, use github.
+description: Open or update a pull request when the user explicitly asks for a PR or invokes /pr; use github for stacked-PR operations.
 license: MIT
 allowed-tools: Bash
 ---
@@ -10,8 +10,9 @@ allowed-tools: Bash
 Open or update a pull request for the current branch. Do not commit
 unless the user asked. Never include secrets.
 
-Title uses the same scoped form as git-commit: `scope: imperative
-summary`. Prefer the primary scope of the commits on the branch. Body:
+Title uses the same scoped form as git-commit:
+`scope(ticket-number): imperative summary`. Prefer the primary scope of the
+commits on the branch. Body:
 why, what changed, how to verify. Do not fill empty template sections.
 
 1. Inspect: `git status --porcelain`, `git branch -vv`,
@@ -39,7 +40,7 @@ EOF
 )"
 ```
 
-Ticket number is usually something like "Foo #1234" where 'Foo' is project on github/team on github. ALWAYS ASK FOR THIS BEFORE COMITTING.
+Ticket number is usually something like "Foo #1234" where 'Foo' is project on github/team on github. ALWAYS ASK FOR THIS BEFORE COMMITTING.
 
 7. Report the URL.
 
