@@ -1,0 +1,4 @@
+interface:
+  display_name: "Human-first product flow"
+  short_description: "Design simple, human-centered product workflows"
+  default_prompt: "Use $human-first-product-flow to design the simplest understandable path through this product process."
