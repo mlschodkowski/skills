@@ -1,4 +1,0 @@
-interface:
-  display_name: "Diagnose"
-  short_description: "Debug hard failures with a disciplined loop"
-  default_prompt: "Use $diagnose to reproduce, isolate, and fix this failure."

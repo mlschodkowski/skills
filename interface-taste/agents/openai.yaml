@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interface taste"
+  short_description: "Specify calm, precise, high-quality UI details"
+  default_prompt: "Use $interface-taste to specify the interaction quality and visual polish for this interface."
