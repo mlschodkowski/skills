@@ -1,0 +1,4 @@
+interface:
+  display_name: "Quiet code"
+  short_description: "Write clear, local, domain-aware code"
+  default_prompt: "Use $quiet-code to shape this implementation with calm information flow, local co-location, domain language, clear ownership, crisp contracts, and restrained abstraction."
