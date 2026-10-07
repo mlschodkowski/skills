@@ -30,11 +30,13 @@ why, what changed, how to verify. Do not fill empty template sections.
 
 ```bash
 gh pr create --base <base> --title "<scope>: <summary> [<ticket-number>]" --body "$(cat <<'EOF'
+## Why
+
 <why this change exists>
 
-<what moved, at the level a reviewer needs>
+## What
 
-How to verify: <command or check>
+<what moved, at the level a reviewer needs>
 EOF
 )"
 ```
@@ -48,3 +50,7 @@ Ticket number is usually something like "#1234" (like github issue number). ALWA
 
 Merging a stack of PRs is `github`. Do not change git config. Do not
 skip hooks. Do not auto-resolve push rejections.
+
+8. Language rules
+
+Simple and direct, no fillers. If humanizer skill is available, then use it for writing PR body.
