@@ -1,6 +1,6 @@
 ---
 name: git-commit
-description: 'Use when the user asks to commit changes, create a Git commit, or mentions "/commit"; stage files by scope and write a scoped commit message with an optional super-normal description.'
+description: 'Use when the user asks to commit changes, create a Git commit, or mentions "/commit"; stage files by scope and write a clear scoped commit message.'
 license: MIT
 allowed-tools: Bash
 ---
@@ -10,8 +10,8 @@ allowed-tools: Bash
 Stage by scope. One commit per module, package, or layer. Never commit
 secrets (`.env`, private keys, local credentials).
 
-Use `$super-normal` for the subject and body when the wording needs it.
-Keep scoped-commit syntax and repository terms exact.
+Write the subject and body directly. Keep scoped-commit syntax and repository
+terms exact. Use the repository writing guidance when needed.
 
 ## Message
 
@@ -28,7 +28,7 @@ Scope is required. STRONGLY PREFER two levels when the tree has them
 single app, use the layer or module. Use `repo` (or `global` / `root`)
 only when there is no primary or only 1 level (`root/auth` or `global/auth` instad of just `auth`)
 
-Ticket number is usually something like "#1234" (github issue number). ALWAYS ASK FOR THIS BEFORE COMITTING.
+Ticket suffixes are optional unless the repository requires them. Accept “none” without asking again. An explicit user request to omit a ticket takes precedence.
 
 Split mixed scopes into separate commits. If they cannot be split, use
 the parent scope or the project's comma-separated convention.
