@@ -78,26 +78,46 @@ state:
 Completion check: another agent could implement the interaction without
 guessing what “smooth,” “intuitive,” or “delightful” means.
 
-### 3. Shape hierarchy and density
+### 3. Build the visual structure from the content
 
-Use the smallest visual system that supports the job:
+Inventory the content and actions before choosing their visual treatment.
+Rank them by the person's task. Identify what belongs together, what must
+be compared, and what must remain visible.
 
-- establish one primary action and a clear next step;
-- use type, spacing, alignment, scale, and progressive disclosure before adding
-  containers or effects;
-- keep supporting information available without competing with the task;
-- reserve strong contrast, color, blur, and motion for meaningful emphasis;
-- keep feedback local and preferably non-layout-shifting;
-- preserve the person's context when opening detail, changing modes, or showing
-  a result.
+Establish a small visual system:
 
-Choose materials for a reason: separation, legibility, focus, or continuity.
-Describe what a blur or translucency is separating and how it behaves in light,
-dark, large-text, high-contrast, and reduced-transparency conditions. Do not
-stack effects just because the implementation makes them easy.
+- choose shared alignment lines, content widths, and spacing intervals;
+- use a clear type hierarchy to distinguish importance and content roles;
+- use proximity and space to show relationships before adding containers;
+- give comparable information comparable treatment;
+- reserve strong contrast, color, and scale for meaningful differences.
 
-Completion check: the primary job remains obvious in a quiet screenshot and
-after the interface has entered an active state.
+Derive the grid from the content and the available space. Let it adapt to
+narrow screens, longer translations, larger text, and variable data.
+Keep reading order and interaction order coherent as the layout changes.
+
+Use typography as part of the structure. Choose readable type, suitable line
+lengths, and deliberate differences between levels. Follow the product's
+visual authority and platform conventions.
+
+Balance density against the task. Keep comparison data together when people
+need to scan it. Give distinct groups enough space to show their boundaries.
+
+Make each visual choice explain something: importance, grouping, state,
+action, or continuity. Remove treatments whose removal leaves understanding
+and control intact. Preserve labels, affordances, focus indicators, and
+state feedback that people need.
+
+A deliberate exception can improve emphasis or fit unusual content.
+Keep the underlying relationships clear and state the reason for the exception.
+
+Choose materials for separation, legibility, focus, or continuity.
+Describe how they behave in light, dark, large-text, high-contrast, and
+reduced-transparency conditions.
+
+Completion check: with real content, the person can identify the primary
+task, understand the grouping, and find the next action across the relevant
+screen sizes and states.
 
 ### 4. Specify motion, tactility, and sound
 

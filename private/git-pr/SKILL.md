@@ -46,6 +46,8 @@ EXAMPLE TITLE:
 
 Ticket suffixes are optional unless the repository requires them. Accept “none” without asking again. An explicit user request to omit a ticket takes precedence.
 
+When adding info in PR body about checks that were performed write 1-2 sentences max, example: "Unit tests passed, e2e not run".
+
 7. Report the URL.
 
 Merging a stack of PRs is `github`. Do not change git config. Do not
