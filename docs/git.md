@@ -1,6 +1,6 @@
 # Git, commits, and PRs
 
-- Commits: use the `git-commit` skill.
-- Pull requests: use the `git-pr` skill.
-- Ticket numbers: ask once. If the user gives none, repeat asking. There should be no non-referenced ticket commit or PR.
-- Commit and PR prose: follow [writing](writing.md).
+- Use `commit-changes` for commits and `create-pr` for pull requests.
+- Tickets are optional unless the repository requires them. Ask at most once when required. Accept an explicit “none” for the task and omit the ticket suffix.
+- Create commits, branches, pushes, and pull requests only within the user's explicit request. A commit request does not authorize a push.
+- Follow [writing](writing.md) for commit and PR prose.

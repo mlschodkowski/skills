@@ -1,9 +1,8 @@
 # Writing docs, PR descriptions, and commit bodies
 
-Chat replies follow the Replies rules in `~/.agents/AGENTS.md`. Longer prose goes through three passes:
+Write one clear pass by default. Lead with the result or next action. Use short sentences, active voice, concrete facts, and stable repository terms. Use structure when it helps the reader compare or follow steps.
 
-1. Draft in simplified technical English: short sentences, one idea each, active voice, common words, one term per concept. Use lists only for parallel or sequential items.
-2. Shape for an ADHD reader: put the next action or the main point first, number the steps, and keep state on the page. Full rules: `~/.agents/skills/private/i-have-adhd/SKILL.md`.
-3. Edit with the `no-ai-slop` skill: keep the writer's voice and replace abstractions with concrete facts. Then do a final sweep with the check step of the `humanizer` skill (not-X-but-Y contrasts, one-line closers, dashes, triads, bold labels).
+Apply the `simple-language` rules to every explanation in chat, not only on request.
 
-Done means all three passes ran and the sweep finds no tells.
+Use `simple-language` when the user asks for a voice edit or the draft needs one. Apply the user's reading preferences directly; loading a persistent style skill is optional.
+Check accuracy, links, scope, and whether each sentence earns its place. Additional editing passes should fix an observed problem, not satisfy a fixed pipeline.

@@ -23,4 +23,4 @@ Mark a deliberate shortcut with a `ponytail:` comment. Name the ceiling and the 
 // ponytail: O(n²) scan, index by id when lists pass 10k items
 ```
 
-`/ponytail-debt` collects these markers.
+Run `rg -n 'ponytail:' .` to find these markers.
