@@ -5,7 +5,9 @@ Works with any agent that can read Markdown. No required harness or model.
 
 ## Use
 
-Add `skills/` to your agent's skill directory. Keep the folders together because
+Copy the contents of this package's `skills/` directory into your agent's skill
+directory. In this repository, the source is `skills/mlstack/skills/`. Keep the
+folders together because
 skills share references. Ask for a skill by name, or start with `mlstack`.
 
 For example: “Use bug-diagnosis to investigate this failure” or “Use plan-work
@@ -32,6 +34,7 @@ and vertical-slices to prepare a plan. Do not implement it.”
 | [interface-design](skills/interface-design/SKILL.md) | Improve layout, hierarchy, and interaction. |
 | [interaction-motion](skills/interaction-motion/SKILL.md) | Build or review physical motion and haptic feedback. |
 | [simple-language](skills/simple-language/SKILL.md) | Explain the problem, change, and result in simple language. |
+| [wait-what](skills/wait-what/SKILL.md) | Re-pitch the goal, current state, and next action when an explanation loses the reader. |
 | [session-handoff](skills/session-handoff/SKILL.md) | Save the state and next step for another session. |
 | [create-verification-skill](skills/create-verification-skill/SKILL.md) | Create or maintain a runnable project verification skill. |
 | [recall](skills/recall/SKILL.md) | Rebuild working context from history and current state. |
@@ -60,7 +63,7 @@ Adapted from my private skills and session history, with ideas and references fr
 
 The five additions retain pstack's names and core workflows. Imported from
 [cursor/plugins at 4dd1d05](https://github.com/cursor/plugins/tree/4dd1d05818d19792e7cd6e818f1667f95f7e1dbe/pstack).
-The upstream MIT license is in [LICENSE](LICENSE).
+The imported files use the [upstream MIT license](https://github.com/cursor/plugins/blob/4dd1d05818d19792e7cd6e818f1667f95f7e1dbe/pstack/LICENSE).
 
 Local changes replace Cursor-only paths, model rosters, and unavailable sibling
 skills with mlstack references and current-host tools. Delegation is optional.

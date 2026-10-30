@@ -15,6 +15,13 @@
 - Leave adjacent code, comments, and formatting as they are. Mention unrelated dead code in your report instead of deleting it.
 - Remove imports, variables, and functions that your change made unused. Keep pre-existing dead code unless asked.
 
+## Check lifecycle and downstream effects
+
+Use [blast-radius](../skills/mlstack/skills/blast-radius/SKILL.md) when safety
+rests on a contract outside the diff. Use
+[statechart](../skills/mlstack/skills/statechart/SKILL.md) when states, ordering,
+retries, or late events need a model. Neither workflow authorizes a refactor.
+
 ## Shortcuts
 
 Mark a deliberate shortcut with a `ponytail:` comment. Name the ceiling and the upgrade trigger:
