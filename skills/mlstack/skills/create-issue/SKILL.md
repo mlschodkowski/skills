@@ -31,10 +31,6 @@ The concrete impact.
 3. Create the issue with a structured body argument or `gh issue create` using
    `--body-file <file>`. Do not add labels, assignees, milestones, duplicate
    searches, or a ticket number unless requested or required by the repository.
-4. For an `allegro-internal` repository, follow the established
-   [Fusion iteration workflow](references/fusion-iteration.md) automatically.
-   For other repositories, use their documented project convention or leave
-   project membership unset. Do not apply a company project to a personal repo.
-5. Report the issue URL and iteration, or the exact project step that failed.
+4. Report the issue URL and iteration, or the exact project step that failed.
    If issue creation succeeded but placement failed, keep the issue and retry
    placement on that issue; do not create a duplicate.
