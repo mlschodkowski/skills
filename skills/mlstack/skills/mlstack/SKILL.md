@@ -25,6 +25,7 @@ optional. Load supporting references only when they affect the task.
 | Improve UI hierarchy and interaction | [interface-design](../interface-design/SKILL.md) |
 | Build or assess physical motion and haptics | [interaction-motion](../interaction-motion/SKILL.md) |
 | Explain a result or rewrite prose | [simple-language](../simple-language/SKILL.md) |
+| Edit or tighten written content (copy, docs, specs, AI text) | [hemingway](../hemingway/SKILL.md) |
 | Create or maintain a runnable project verification skill. | [create-verification-skill](../create-verification-skill/SKILL.md) |
 | Rebuild working context from history and current state. | [recall](../recall/SKILL.md) |
 | Turn durable session lessons into scoped skill changes or structural checks. | [reflect](../reflect/SKILL.md) |
