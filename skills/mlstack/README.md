@@ -39,6 +39,7 @@ and vertical-slices to prepare a plan. Do not implement it.”
 | [create-verification-skill](skills/create-verification-skill/SKILL.md) | Create or maintain a runnable project verification skill. |
 | [recall](skills/recall/SKILL.md) | Rebuild working context from history and current state. |
 | [reflect](skills/reflect/SKILL.md) | Turn durable session lessons into scoped skill changes or structural checks. |
+| [encode-lesson](skills/encode-lesson/SKILL.md) | Turn one correction into a lasting rule in the right place. |
 | [blast-radius](skills/blast-radius/SKILL.md) | Prove the critical safety assumption beyond a change’s diff. |
 | [statechart](skills/statechart/SKILL.md) | Check a TLA+ model and draw states, rule failures, and bug paths. |
 

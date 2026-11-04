@@ -31,6 +31,7 @@ optional. Load supporting references only when they affect the task.
 | Create or maintain a runnable project verification skill. | [create-verification-skill](../create-verification-skill/SKILL.md) |
 | Rebuild working context from history and current state. | [recall](../recall/SKILL.md) |
 | Turn durable session lessons into scoped skill changes or structural checks. | [reflect](../reflect/SKILL.md) |
+| Turn one correction into a lasting rule in the right place | [encode-lesson](../encode-lesson/SKILL.md) |
 | Prove the critical safety assumption beyond a change’s diff. | [blast-radius](../blast-radius/SKILL.md) |
 | Check a TLA+ model and draw states, rule failures, and bug paths. | [statechart](../statechart/SKILL.md) |
 | Leave exact state for the next session | [session-handoff](../session-handoff/SKILL.md) |

@@ -1,46 +1,67 @@
 ---
 name: clean-code
-description: Make the smallest complete code change with clear ownership, direct control flow, and explicit failure behavior. Use for implementation, refactoring, or reducing an overgrown diff.
+description: Make the smallest complete code change that fits the codebase's own conventions. Use for implementation, refactoring, review fixes, or reducing an overgrown diff.
 ---
 
-# Small change
+# Clean code
 
 Read [working rules](../mlstack/references/rules.md).
 
-Start with the requested behavior and the current diff. Find the smallest
-change from the real base that delivers it. A small change adds little complexity
-and delivers the complete result. Line count alone does not decide.
+The codebase sets the style. This skill sets the discipline.
 
-1. Read the touched path, callers, tests, configuration, and relevant decisions.
-   For shared or lifecycle code, trace state owners, external effects, and the
-   contract that old and new callers expect.
-2. State what changes and what stays the same. Preserve existing user edits.
-   Find facts yourself. Ask about unresolved behavior or ownership decisions.
-3. Reuse a sound local pattern or platform capability. A nearby bad pattern is
-   not a reason to repeat it. Keep a little repetition when the rules differ.
-4. Use names from the domain, direct conditions, and visible inputs and results.
-   Keep related decisions together. Extract a helper when it owns one real rule,
-   effect, invariant, or useful boundary; remove pass-through wrappers.
-5. Complete all affected callers, exports, fixtures, and contracts. Remove only
-   code that this change makes unused. Leave unrelated cleanup in place.
-6. Verify the final behavior. Use [tdd](../tdd/SKILL.md) for behavior
-   changes and [review-changes](../review-changes/SKILL.md) when a review is requested.
+## Fit the codebase first
 
-## What reduction must preserve
+Before writing, read `AGENTS.md` and two or three sibling files that do the same
+job as the code you will touch. Note where they put checks, state, constants, and
+external calls. Put yours in the same places.
 
-Keep validation, authorization, useful logs and error levels, recovery, retries
-that protect a real failure, accessibility, and required compatibility.
-Do not replace a failure with a silent fallback to make the path shorter.
-Keep stress and concurrency tests that catch a real failure. Remove redundant
-setup or assertions before removing the scenario they protect.
+Authority, highest first: the user's instruction, the project's written rules,
+the neighbouring code, this skill. A nearby pattern you dislike is still the
+pattern, unless the user or the project rules say otherwise.
 
-Do not build a general framework, new configuration surface, retry system,
-compatibility layer, or dependency for a need the task does not establish.
-A deliberate shortcut gets a `ponytail:` comment with its limit and upgrade
-trigger. This marker remains compatible with the user's existing debt search.
+## Principles
 
-For a clarity choice that needs an example, read
-[clarity-examples.md](references/clarity-examples.md).
+Name the principle you apply and the decision it changed. A name with no
+changed decision means it was not applied.
 
-Report the changed behavior, the check, and material limits. Explain a surprising
-change with one before/after example. Do not make every small edit a full audit.
+- **One source of truth.** One decision lives in one place. When two files
+  branch on the same rule, give the rule one owner.
+- **Reader load.** Count the layers between a question and its answer. Remove a
+  wrapper that only forwards. Keep a helper that names a concept.
+- **Smallest complete change.** Subtract first. Deliver the whole behavior: callers,
+  wiring, fixtures, docs. Add an abstraction, option, dependency, file, or doc only
+  when this task needs it. Handle only failures that can actually happen. Leave
+  unrelated code alone.
+- **Reduce, do not relocate.** Count the concepts a reader must hold before and
+  after. A change that moves the same logic elsewhere did not simplify. Prefer the
+  change that removes a branch, mode, or layer. These signal a missing owner: a new
+  conditional added to an unrelated flow, the same conditional repeated on one
+  shape, feature logic in a shared module, a near-duplicate of an existing helper.
+  Reuse the helper, or give the rule its own place.
+- **Narrow inputs, intent names.** Take what the code needs. Name by the domain
+  and the rule, not the mechanism.
+- **Preserve behavior.** Keep validation, authorization, errors, logs, and
+  recovery. Do not trade a failure for a silent fallback.
+
+## Where does it belong?
+
+Ask these in order:
+
+1. Where do the nearest siblings put the same kind of thing?
+2. Who owns the rule or the state? Does anyone else need it?
+3. If no sibling shows the way and several callers need it, give the rule a named owner.
+
+Add a concern beside the existing code at the layer that owns it. Do not wrap or
+replace working code to fit it in.
+
+## Finish
+
+Remove only what this change made unused. Keep pre-existing dead code unless asked,
+and mention it in the report. Move tests with the code they cover. Verify with the
+project's own test and lint commands (use [tdd](../tdd/SKILL.md) for behavior
+changes). A deliberate shortcut gets a `ponytail:` comment with its ceiling and the
+trigger to upgrade, for example `// ponytail: O(n²) scan, index by id past 10k items`.
+Find them with `rg -n 'ponytail:' .`.
+
+Report what changed, how you checked it, and material limits. Name each
+principle you applied and the decision it changed.
