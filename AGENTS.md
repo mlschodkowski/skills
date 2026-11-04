@@ -13,6 +13,7 @@ These rules apply to every task in every repository. User instructions override 
 - When explaining a change, plan, or review, also state what stayed unchanged or is not new. For example: "no new audit type" or "callers untouched".
 - Use skills that match the task. Do not run them as a fixed pipeline.
 - When I say "plan", save the plan to a file and stop. Execute only after I say "execute".
+- When you finish the task state what you did, what you didn't and what assumptions did you made when working on task (like writing code) without asking me.
 
 ## Replies
 
