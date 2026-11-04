@@ -38,8 +38,8 @@ claim yourself. Never claim model consensus from one review.
 ## Validate findings
 
 Compare each claimed regression with the actual base. Separate introduced
-defects, pre-existing defects, scope changes, and optional improvements. A seeded
-state that the public flow cannot create needs that prerequisite stated. Assess
+defects, pre-existing defects, scope changes, and optional improvements. If a finding requires a seeded
+state that the public flow cannot create, state that prerequisite. Assess
 whether a test failure blocks the requested behavior rather than treating every
 failing assertion as equal evidence.
 

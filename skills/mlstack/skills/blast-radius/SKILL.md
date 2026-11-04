@@ -11,20 +11,20 @@ Find what a change breaks somewhere else, before it ships. Use for "blast radius
 
 Companion to [explain-code](../explain-code/SKILL.md) and [review-changes](../review-changes/SKILL.md). Trace runtime behavior and relevant decision history. Blast radius tells you what it breaks somewhere else.
 
-Listing the callers is not the job. The agent can grep those in a second. The job is the breakage grep won't show you.
+Look beyond the caller list. Trace effects that a symbol search cannot show.
 
 ## Don't trust your own writeup
 
-A blast-radius writeup that sounds right is worthless. It reads as convincing whether or not it's true. So don't hand back the writeup. Find the one or two facts the whole thing depends on and prove them by running code.
+A convincing report is not proof. Find the one or two facts that support the safety claim. Test them by running code.
 
 ### How sure are you
 
-For each fact the change's safety depends on, get it as far down this list as is cheap, and say where it stopped.
+For each fact behind the safety claim, reach the strongest practical evidence level below. State the level you reached.
 
-1. You said so. Worthless on its own.
+1. An unsupported claim. This alone provides no evidence.
 2. You pointed at the line. A real `file:line`, or the library's own source.
 3. You showed the bad case can't happen. You walked the failure step by step and it doesn't reach.
-4. You ran it. A script or test that calls the real code and fails loud if you're wrong.
+4. Executed evidence. A script or test calls the real code and fails if the claim is wrong.
 5. You reproduced it in the running app.
 
 Step 4 is usually one small script that imports the same library the app ships and calls the exact function you're worried about.

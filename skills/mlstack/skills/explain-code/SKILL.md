@@ -26,7 +26,7 @@ does not authorize edits, new architecture documents, or a refactor.
 Name entities, states, transitions, invariants, and the owner of each effect.
 Check concrete valid, invalid, repeated, and partially failed scenarios. Prefer
 a data structure that represents the real rules over flags that must stay in
-sync. Keep a direct conditional when a new abstraction buys no real guarantee.
+sync. Keep a direct conditional when a new abstraction adds no guarantee.
 
 Read [module-design.md](references/module-design.md) when choosing an interface
 or test seam, and [module-dependencies.md](references/module-dependencies.md) when

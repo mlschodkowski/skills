@@ -11,8 +11,8 @@ Read [working rules](../mlstack/references/rules.md).
 
 Read the request, current code, prior plan, relevant docs, and available evidence.
 Restate the person's goal and concrete successful flow. Keep the product idea
-intact as the plan becomes more detailed. A polished spec for a different
-product is a failed plan.
+intact as the plan becomes more detailed. A plan fails if it describes a different
+product, even when the writing is clear.
 
 Find discoverable facts yourself. Separate them from decisions. For each open
 decision that changes behavior, scope, ownership, migration, or rollout, ask a

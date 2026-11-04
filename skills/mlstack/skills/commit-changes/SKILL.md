@@ -10,7 +10,7 @@ request. Read applicable repository Git instructions before naming it.
 
 1. Inspect status, unstaged and staged diffs, current branch, and recent commit
    subjects. Identify the requested slice and any user changes or local bypasses.
-2. Group by coherent scope. Stage explicit paths or hunks. One completed slice
+2. Group changes by purpose. Stage explicit paths or hunks. One completed slice
    can be one commit when its cross-layer changes belong together; split unrelated
    scopes. Leave unrelated staged changes out without discarding them.
 3. Verify the exact staged diff and the relevant checks. Check for credentials,

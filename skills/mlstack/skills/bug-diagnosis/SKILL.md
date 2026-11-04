@@ -48,7 +48,7 @@ preconditions, but run a production write only on an explicit instruction.
 
 A diagnosis-only request ends with the supported cause and proposed fix.
 For a requested fix, use [tdd](../tdd/SKILL.md). Put the regression check
-at a seam that reaches the real caller sequence. Change the shared cause once;
+at an interface that reaches the real caller sequence. Change the shared cause once;
 trace all affected callers rather than patching each symptom separately.
 
 Re-run the minimal test and the original scenario. Check related failure paths.

@@ -21,11 +21,13 @@ optional. Load supporting references only when they affect the task.
 | Audit trust boundaries | [security-review](../security-review/SKILL.md) |
 | Stay with a PR through CI and reviews | [babysit](../babysit/SKILL.md) |
 | Commit, file a PR, or create an issue | [commit-changes](../commit-changes/SKILL.md), [create-pr](../create-pr/SKILL.md), [create-issue](../create-issue/SKILL.md) |
+| Check understanding of a change before shipping | [understand-before-ship](../understand-before-ship/SKILL.md) |
 | Explain flow, ownership, or model design | [explain-code](../explain-code/SKILL.md) |
 | Improve UI hierarchy and interaction | [interface-design](../interface-design/SKILL.md) |
 | Build or assess physical motion and haptics | [interaction-motion](../interaction-motion/SKILL.md) |
+| Restate the last answer in simpler language | [what](../what/SKILL.md) |
 | Explain a result or rewrite prose | [simple-language](../simple-language/SKILL.md) |
-| Edit or tighten written content (copy, docs, specs, AI text) | [hemingway](../hemingway/SKILL.md) |
+| Edit or tighten written content (copy, docs, specs, AI text) | [hemingway-style](../hemingway-style/SKILL.md) |
 | Create or maintain a runnable project verification skill. | [create-verification-skill](../create-verification-skill/SKILL.md) |
 | Rebuild working context from history and current state. | [recall](../recall/SKILL.md) |
 | Turn durable session lessons into scoped skill changes or structural checks. | [reflect](../reflect/SKILL.md) |
@@ -33,6 +35,6 @@ optional. Load supporting references only when they affect the task.
 | Check a TLA+ model and draw states, rule failures, and bug paths. | [statechart](../statechart/SKILL.md) |
 | Leave exact state for the next session | [session-handoff](../session-handoff/SKILL.md) |
 
-Combine workflows only when needed: an authorized fix can reuse a repro and a
-red-to-green test. A review stays a review. A plan is saved before execution.
+Combine workflows only when needed. An authorized fix can reuse a reproduction
+and a red-to-green test. A review stays a review. A plan is saved before execution.
 Do not run every skill as a fixed pipeline.

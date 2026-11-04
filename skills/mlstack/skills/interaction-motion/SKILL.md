@@ -31,8 +31,8 @@ rendering framework, or review subagent.
    reversal, and failure. Decide whether motion helps at all. Frequent actions
    need immediate feedback and little delay; rare moments can carry more character.
 2. Preserve spatial ownership: origin, axis, layer, and the part of the interface
-   that stays stable. Direct manipulation follows the finger. Release uses the
-   current velocity and position rather than restarting a canned animation.
+   that stays stable. Direct manipulation follows the finger. On release, continue from the
+   current velocity and position. Do not restart a preset animation.
 3. Pick the smallest existing tool that fits. Use CSS for simple web state
    transitions, the installed motion library when appropriate, and platform
    animation APIs for native work. Avoid a new dependency for a small effect.

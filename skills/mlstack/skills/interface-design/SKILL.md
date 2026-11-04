@@ -20,7 +20,7 @@ A source review alone cannot prove that the interface feels clear.
    alignment, type, and surface hierarchy before adding more separators.
 3. Make the important information and primary action easy to find. Remove
    repeated explanations, empty groups, competing badges, and decoration that
-   makes every element equally loud. Keep necessary recovery and help available.
+   makes every element compete for attention. Keep necessary recovery and help available.
 4. Keep interactions consistent across equivalent objects. If swipe, hold,
    edit, or dismiss works on one type, inspect the corresponding behavior on the
    others. Do not add a hidden gesture as the only way to perform a core action.

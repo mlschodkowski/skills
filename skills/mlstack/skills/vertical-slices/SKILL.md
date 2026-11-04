@@ -20,8 +20,8 @@ Each slice states:
 5. Compatibility or rollout conditions when the slice changes a shared contract.
 
 A schema-only, API-only, or test-only task is usually a step inside a slice.
-Each slice must be independently verifiable. Keep necessary prefactoring small;
-do not put a speculative framework ahead of the first useful behavior.
+Each slice must be independently verifiable. Keep preparation refactors small.
+Do not build a speculative framework before the first useful behavior.
 
 For a wide contract change, use expand, migrate, contract. Keep old and new forms
 compatible during migration. If a mechanical migration cannot stay green in

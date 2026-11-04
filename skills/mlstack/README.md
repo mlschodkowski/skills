@@ -28,11 +28,13 @@ and vertical-slices to prepare a plan. Do not implement it.”
 | [commit-changes](skills/commit-changes/SKILL.md) | Commit the requested changes with a scoped message. |
 | [create-pr](skills/create-pr/SKILL.md) | Open or update a PR with a short description. |
 | [create-issue](skills/create-issue/SKILL.md) | Create an issue with What, Why, and Definition of Done. |
+| [understand-before-ship](skills/understand-before-ship/SKILL.md) | Explain a change and check your understanding with scenario questions. |
 | [explain-code](skills/explain-code/SKILL.md) | Explain flow, ownership, and module design. |
 | [interface-design](skills/interface-design/SKILL.md) | Improve layout, hierarchy, and interaction. |
 | [interaction-motion](skills/interaction-motion/SKILL.md) | Build or review physical motion and haptic feedback. |
+| [what](skills/what/SKILL.md) | Restate the last answer in clear, approachable language. |
 | [simple-language](skills/simple-language/SKILL.md) | Explain the problem, change, and result in simple language. |
-| [hemingway](skills/hemingway/SKILL.md) | Edit writing for clarity and economy; flag passive voice, jargon, and AI slop. |
+| [hemingway-style](skills/hemingway-style/SKILL.md) | Edit writing for clarity and economy; flag passive voice, jargon, and AI slop. |
 | [session-handoff](skills/session-handoff/SKILL.md) | Save the state and next step for another session. |
 | [create-verification-skill](skills/create-verification-skill/SKILL.md) | Create or maintain a runnable project verification skill. |
 | [recall](skills/recall/SKILL.md) | Rebuild working context from history and current state. |
@@ -89,3 +91,7 @@ Model checking proves properties of the model; replay bug paths against real cod
 - “Use statechart to model approval, cancellation, and late callbacks. Check
   that cancellation cannot grant access. Show the shortest violating path and
   replay it against the implementation.”
+
+- “Use understand-before-ship on this change. Explain the key decisions, then
+  ask three scenario questions. Wait for my answers before explaining them.”
+- “/what do you mean by that”

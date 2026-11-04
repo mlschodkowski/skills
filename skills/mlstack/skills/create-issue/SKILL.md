@@ -32,5 +32,5 @@ The concrete impact.
    `--body-file <file>`. Do not add labels, assignees, milestones, duplicate
    searches, or a ticket number unless requested or required by the repository.
 4. Report the issue URL and iteration, or the exact project step that failed.
-   If issue creation succeeded but placement failed, keep the issue and retry
-   placement on that issue; do not create a duplicate.
+   If creation succeeds but placement fails, retry placement on the same issue.
+   Do not create a duplicate.

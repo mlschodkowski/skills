@@ -8,8 +8,8 @@ description: Make the smallest complete code change with clear ownership, direct
 Read [working rules](../mlstack/references/rules.md).
 
 Start with the requested behavior and the current diff. Find the smallest
-change from the real base that delivers it. Small means little new complexity
-and a complete result; line count alone does not decide.
+change from the real base that delivers it. A small change adds little complexity
+and delivers the complete result. Line count alone does not decide.
 
 1. Read the touched path, callers, tests, configuration, and relevant decisions.
    For shared or lifecycle code, trace state owners, external effects, and the

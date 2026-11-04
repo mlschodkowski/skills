@@ -9,7 +9,7 @@ Read [stack rules](../mlstack/references/rules.md).
 
 1. Record expected behavior, observed behavior, trigger, version, environment,
    and available evidence. Inspect the real call path and existing test tools.
-   Ask for only the missing facts that prevent a useful attempt.
+   Ask only for missing facts that block a useful attempt.
 2. Build the cheapest executable check that reaches the reported symptom.
    Prefer an existing test, then a CLI or HTTP check, then browser automation,
    captured-event replay, or a small harness. Use synthetic data and local

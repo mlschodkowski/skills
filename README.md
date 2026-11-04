@@ -14,11 +14,12 @@ and vertical-slices to prepare a plan. Do not implement it.”
 
 ## Repository layout
 
-- `skills/mlstack/skills/` contains the current stack: 24 skills, including the
-  router, the five pstack additions, and `wait-what`.
+- `skills/mlstack/skills/` contains the current stack: 27 skills, including the
+  router, the five pstack additions, `wait-what`, `what`, `hemingway-style`, and `understand-before-ship`.
 - [Package README](skills/mlstack/README.md) describes the copied stack.
 - `skills/<name>/` contains older copies. Do not combine those copies with the
   nested stack during installation.
+- [AGENTS.md](AGENTS.md) contains the shared agent instructions.
 - `docs/` contains [code-change rules](docs/code-changes.md),
   [testing and verification](docs/testing.md), [Git rules](docs/git.md), and
   [writing rules](docs/writing.md).
@@ -40,10 +41,13 @@ and vertical-slices to prepare a plan. Do not implement it.”
 | [commit-changes](skills/mlstack/skills/commit-changes/SKILL.md) | Commit the requested changes with a scoped message. |
 | [create-pr](skills/mlstack/skills/create-pr/SKILL.md) | Open or update a PR with a short description. |
 | [create-issue](skills/mlstack/skills/create-issue/SKILL.md) | Create an issue with What, Why, and Definition of Done. |
+| [understand-before-ship](skills/mlstack/skills/understand-before-ship/SKILL.md) | Explain a change and check your understanding with scenario questions. |
 | [explain-code](skills/mlstack/skills/explain-code/SKILL.md) | Explain flow, ownership, and module design. |
 | [interface-design](skills/mlstack/skills/interface-design/SKILL.md) | Improve layout, hierarchy, and interaction. |
 | [interaction-motion](skills/mlstack/skills/interaction-motion/SKILL.md) | Build or review physical motion and haptic feedback. |
 | [simple-language](skills/mlstack/skills/simple-language/SKILL.md) | Explain the problem, change, and result in simple language. |
+| [what](skills/mlstack/skills/what/SKILL.md) | Restate the last answer in clear, approachable language. |
+| [hemingway-style](skills/mlstack/skills/hemingway-style/SKILL.md) | Edit writing for clarity while preserving technical meaning. |
 | [wait-what](skills/mlstack/skills/wait-what/SKILL.md) | Re-pitch the goal, current state, and next action when an explanation loses the reader. |
 | [session-handoff](skills/mlstack/skills/session-handoff/SKILL.md) | Save the state and next step for another session. |
 | [create-verification-skill](skills/mlstack/skills/create-verification-skill/SKILL.md) | Create or maintain a runnable project verification skill. |
@@ -101,3 +105,7 @@ Model checking proves properties of the model; replay bug paths against real cod
 - “Use statechart to model approval, cancellation, and late callbacks. Check
   that cancellation cannot grant access. Show the shortest violating path and
   replay it against the implementation.”
+
+- “Use understand-before-ship on this change. Explain the key decisions, then
+  ask three scenario questions. Wait for my answers before explaining them.”
+- “/what do you mean by that”

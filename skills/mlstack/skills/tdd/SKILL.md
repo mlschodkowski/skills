@@ -32,7 +32,7 @@ filesystem boundaries only where control is necessary.
 4. Repeat for the next behavior. Each cycle crosses the necessary layers;
    do not write all tests and then all implementation.
 
-Expected values come from the contract or an independently worked example.
+Derive expected values from the contract or work them out independently.
 Assertions must detect wrong behavior rather than repeat the implementation.
 
 For a bug, the test must catch the reported trigger. Re-run the original

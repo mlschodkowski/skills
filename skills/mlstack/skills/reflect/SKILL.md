@@ -1,15 +1,15 @@
 ---
 name: reflect
-description: Review a session through judgment, tooling, and divergent lenses, surface durable learnings, and route them to existing skill edits or structural checks. Use for reflect or a session retrospective.
+description: Review a session through judgment, tooling, and divergent lenses, surface lasting lessons, and route them to existing skill edits or structural checks. Use for reflect or a session retrospective.
 ---
 
 # Reflect
 
 Read [working rules](../mlstack/references/rules.md).
 
-Mine the current conversation for durable learnings, then route them into skill edits.
+Find lasting lessons in the current conversation. Identify the skill edits they support.
 
-Invoke when the user says "reflect" or "/reflect". Skip when the conversation is trivial, off-topic, or already covered by an existing skill the parent followed correctly. One-offs are not learnings.
+Invoke when the user says "reflect" or "/reflect". Skip when the conversation is trivial, off-topic, or already covered by an existing skill the parent followed correctly. A one-time event is not a lasting lesson.
 
 ## 1. Locate the active transcript
 

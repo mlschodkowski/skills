@@ -17,8 +17,8 @@ connector or `gh`. Read the repository's PR template and Git instructions.
 3. Write a scoped title using the same format as
    [commit-changes](../commit-changes/SKILL.md). Honor the requested ticket and draft state.
 4. Lead the body with the problem and resulting behavior. Explain deployment
-   order, migration, or rollback only when they matter. Describe the final diff,
-   including material review fixes, rather than repeating an obsolete plan.
+   order, migration, or rollback only when they matter. Describe the final diff
+   and important review fixes. Do not repeat an obsolete plan.
    Report validation in one or two sentences with its limits.
 5. Push the requested branch with a normal push. Create the PR, or update its
    title/body only when the request covers that update. Prefer a structured body

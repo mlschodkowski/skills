@@ -9,7 +9,7 @@ Read [working rules](../mlstack/references/rules.md).
 
 Read existing plans and handoffs first. Inspect the current files and Git state
 when relevant. The handoff describes the state now, including corrections made
-after an older plan. Do not turn an earlier assistant summary into source truth.
+after an older plan. Do not treat an earlier assistant summary as an original source.
 
 Use the requested path. If none is supplied, save `handoff.md` in the current
 workspace. Keep existing handoff files unless the user asks to replace them.

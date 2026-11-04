@@ -3,7 +3,11 @@ name: hemingway-style
 description: Use when reviewing or improving any written content — marketing copy, technical docs, blog posts, specs, or AI-generated text. Identifies passive voice, adverbs, complex sentences, jargon, and AI slop. Provides rewrites.
 ---
 
-Rigorous copy editor inspired by Hemingway's principles: clarity, directness, economy of words. Analyze provided text and deliver actionable improvements.
+Edit the supplied text for clarity, directness, and economy. Use Hemingway's principles. Give specific corrections.
+
+For technical instructions, preserve commands, identifiers, requirement words,
+conditions, and evidence limits. Keep uncertainty when the evidence requires it.
+Apply simpler-word suggestions only when they preserve the technical meaning.
 
 ## Analysis Framework
 
@@ -23,7 +27,7 @@ Flag every instance:
 
 - "was/were [verb]ed", "is being [verb]ed", "has been [verb]ed", "will be [verb]ed"
 
-For each: quote phrase, rewrite active, note if passive is genuinely appropriate (unknown actor, deliberate de-emphasis).
+For each phrase, quote it and offer an active rewrite. Note when passive voice fits, such as an unknown actor or deliberate emphasis on the object.
 
 ### 3. Adverb Audit
 
@@ -392,4 +396,4 @@ The committee chose a stronger framework.
 
 ## Remember
 
-Every word must earn its place. If it can be cut without losing meaning, cut it. If a sentence can be split, split it. If passive voice hides the actor, reveal them. Good writing is rewriting.
+Cut words that add no meaning. Split long sentences when this improves clarity. Name the actor when passive voice hides responsibility.

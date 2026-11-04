@@ -5,7 +5,7 @@ description: Re-pitch work the user does not follow. Use when the user says "wai
 
 # Wait, what?
 
-The user lost the thread. Do not repeat your last message. Re-pitch it.
+The user needs a clearer explanation. Give fresh context instead of repeating your last message.
 
 > Wait, I don't understand where you've got to here. Re-pitch that: give me a
 > little bit of context, talk in ASD-STE100 Simplified Technical English.

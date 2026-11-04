@@ -22,7 +22,7 @@ standard source review. State the depth and scope:
 - **Standard:** map entry surfaces and trust boundaries, then examine the relevant
   attack classes across the requested scope.
 - **Deep:** add local validation where safely available, revisit coverage gaps,
-  and retain a report when requested. More depth is not proof of completeness.
+  and retain a report when requested. A deeper review does not prove complete coverage.
 
 Use inline findings unless the user requests files. For saved reports, use an
 authorized output directory and keep source unchanged. No level requires

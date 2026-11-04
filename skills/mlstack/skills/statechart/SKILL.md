@@ -7,7 +7,7 @@ description: "Check a TLA+ model of a system that moves between states, such as 
 
 Read [working rules](../mlstack/references/rules.md).
 
-The chart shows how a system moves between states, in the words of the person who reads it. That person, the reader, decides whether the behavior is right.
+Show how the system moves between states. Use terms the reader knows. The reader decides whether the behavior is correct.
 
 ## Run
 
@@ -29,7 +29,7 @@ The first run installs TLC and Java with mise and needs the network.
 
 ## Pick the chart
 
-You do the work that needs judgment: the words on each state and arrow, the phases and their colors, the title, and the report to the reader. Put your work in a view module, and give it with `--view`.
+Choose the state and arrow labels, phases, colors, title, and report. Put these choices in a view module and pass it with `--view`.
 
 To show the reader's words, the view exports `state(vars)`. The value that `state()` returns picks the form:
 
@@ -80,4 +80,4 @@ Render charts with Pele. When the user asks for an image, or a chart is too larg
 
 Give each chart and its Mermaid text to the person who must decide. Add one line for each bug: the rule, the reader's sentence for that rule, and the path as the report numbers it. Say what the model leaves out. Give the command that makes the files again, with a new `--out` folder.
 
-When the model describes code, replay each bug path against the real code, as a test or a live repro, one step for each action. If a bug does not occur, think that the model is wrong until you show that it is not.
+When the model describes code, replay each bug path against the real code, as a test or a live repro, one step for each action. If the code does not reproduce a bug, treat the model as incorrect until evidence supports it.

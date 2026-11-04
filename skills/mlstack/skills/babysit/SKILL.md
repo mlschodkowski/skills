@@ -34,8 +34,8 @@ Do not kill another session's watcher without establishing ownership.
 Use `--until any-change` to wake on events. The helper's first poll records a
 baseline; inspect existing findings yourself. `--until green` checks CI only.
 `--until ready` also expects Greptile or Macroscope and is useful only in repos
-that require one of them. Neither exit code nor bot verdict alone proves the
-final readiness conditions below. A PR with no checks needs a direct snapshot;
+that require one of them. An exit code or bot verdict alone does not prove that the PR meets the
+readiness conditions below. A PR with no checks needs a direct snapshot;
 the helper does not classify an empty check list as green.
 
 If the helper is unavailable, use a connector's event or check-wait operation.
