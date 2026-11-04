@@ -1,6 +1,6 @@
 ---
 name: what
-description: Restate the agent's last response in simpler, clearer language when the user invokes /what or /what do you mean by that. Based on wait-what; preserves facts, uncertainty, and scope.
+description: Restate the agent's last response in simpler, clearer language when the user invokes /what or /what do you mean by that. Preserves facts, uncertainty, and scope.
 ---
 
 # What do you mean?
@@ -10,7 +10,10 @@ language. Use the agent's last substantive response as the target. If the user
 quotes a passage, focus on that passage. Read earlier context only when needed
 to explain it. If no target response is available, ask for the text.
 
-Follow [wait-what](../wait-what/SKILL.md):
+Give fresh context instead of repeating the last response.
+Use ASD-STE100 Simplified Technical English.
+
+Restate the answer in this order:
 
 1. Give the context: the goal and why it matters.
 2. State where the work stands: done, in progress, or not started.

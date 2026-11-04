@@ -14,8 +14,8 @@ and vertical-slices to prepare a plan. Do not implement it.”
 
 ## Repository layout
 
-- `skills/mlstack/skills/` contains the current stack: 27 skills, including the
-  router, the five pstack additions, `wait-what`, `what`, `hemingway-style`, and `understand-before-ship`.
+- `skills/mlstack/skills/` contains the current stack: 26 skills, including the
+  router, the five pstack additions, `what`, `hemingway-style`, and `understand-before-ship`.
 - [Package README](skills/mlstack/README.md) describes the copied stack.
 - `skills/<name>/` contains older copies. Do not combine those copies with the
   nested stack during installation.
@@ -48,7 +48,6 @@ and vertical-slices to prepare a plan. Do not implement it.”
 | [simple-language](skills/mlstack/skills/simple-language/SKILL.md) | Explain the problem, change, and result in simple language. |
 | [what](skills/mlstack/skills/what/SKILL.md) | Restate the last answer in clear, approachable language. |
 | [hemingway-style](skills/mlstack/skills/hemingway-style/SKILL.md) | Edit writing for clarity while preserving technical meaning. |
-| [wait-what](skills/mlstack/skills/wait-what/SKILL.md) | Re-pitch the goal, current state, and next action when an explanation loses the reader. |
 | [session-handoff](skills/mlstack/skills/session-handoff/SKILL.md) | Save the state and next step for another session. |
 | [create-verification-skill](skills/mlstack/skills/create-verification-skill/SKILL.md) | Create or maintain a runnable project verification skill. |
 | [recall](skills/mlstack/skills/recall/SKILL.md) | Rebuild working context from history and current state. |
