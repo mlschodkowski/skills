@@ -15,6 +15,10 @@ Before writing, read `AGENTS.md` and two or three sibling files that do the same
 job as the code you will touch. Note where they put checks, state, constants, and
 external calls. Put yours in the same places.
 
+Before changing or removing code, understand its callers, edge cases, and why it
+exists. Check history when the reason is unclear, including possible performance
+or platform constraints.
+
 Authority, highest first: the user's instruction, the project's written rules,
 the neighbouring code, this skill. A nearby pattern you dislike is still the
 pattern, unless the user or the project rules say otherwise.
@@ -27,7 +31,9 @@ changed decision means it was not applied.
 - **One source of truth.** One decision lives in one place. When two files
   branch on the same rule, give the rule one owner.
 - **Reader load.** Count the layers between a question and its answer. Remove a
-  wrapper that only forwards. Keep a helper that names a concept.
+  wrapper that only forwards. Keep a helper that names a concept. Check that an
+  on-call engineer woken by an alert in the middle of the night can read and
+  understand the result.
 - **Smallest complete change.** Subtract first. Deliver the whole behavior: callers,
   wiring, fixtures, docs. Add an abstraction, option, dependency, file, or doc only
   when this task needs it. Handle only failures that can actually happen. Leave
@@ -40,8 +46,10 @@ changed decision means it was not applied.
   Reuse the helper, or give the rule its own place.
 - **Narrow inputs, intent names.** Take what the code needs. Name by the domain
   and the rule, not the mechanism.
-- **Preserve behavior.** Keep validation, authorization, errors, logs, and
-  recovery. Do not trade a failure for a silent fallback.
+- **Preserve behavior when simplifying.** Keep inputs, outputs, side effects,
+  their order, and error behavior unchanged. Keep validation, authorization, logs,
+  and recovery. Do not trade a failure for a silent fallback. For fixes and other
+  behavior changes, change only the behavior the task requires.
 
 ## Where does it belong?
 
