@@ -14,7 +14,7 @@ and vertical-slices to prepare a plan. Do not implement it.”
 
 ## Repository layout
 
-- `skills/mlstack/skills/` contains the current stack: 26 skills, including the
+- `skills/mlstack/skills/` contains the current stack: 32 skills, including the
   router, the five pstack additions, `what`, `hemingway-style`, and `understand-before-ship`.
 - [Package README](skills/mlstack/README.md) describes the copied stack.
 - `skills/<name>/` contains older copies. Do not combine those copies with the
@@ -28,6 +28,12 @@ and vertical-slices to prepare a plan. Do not implement it.”
 
 | Skill | What it does |
 | --- | --- |
+| [ponytail](skills/mlstack/skills/ponytail/SKILL.md) | Choose the smallest complete coding change. |
+| [ponytail-audit](skills/mlstack/skills/ponytail-audit/SKILL.md) | Audit a repository for correctness, safety, and unnecessary code. |
+| [ponytail-debt](skills/mlstack/skills/ponytail-debt/SKILL.md) | List recorded shortcuts and their limits. |
+| [ponytail-gain](skills/mlstack/skills/ponytail-gain/SKILL.md) | Show the published Ponytail benchmark. |
+| [ponytail-help](skills/mlstack/skills/ponytail-help/SKILL.md) | Show Ponytail usage and commands. |
+| [ponytail-review](skills/mlstack/skills/ponytail-review/SKILL.md) | Review a change for correctness, safety, and unnecessary code. |
 | [mlstack](skills/mlstack/skills/mlstack/SKILL.md) | Select the workflow for the task. |
 | [plan-work](skills/mlstack/skills/plan-work/SKILL.md) | Resolve decisions, save a plan, and stop. |
 | [vertical-slices](skills/mlstack/skills/vertical-slices/SKILL.md) | Split work into small end-to-end changes. |

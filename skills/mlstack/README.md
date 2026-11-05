@@ -15,6 +15,12 @@ and vertical-slices to prepare a plan. Do not implement it.”
 
 | Skill | What it does |
 | --- | --- |
+| [ponytail](skills/ponytail/SKILL.md) | Choose the smallest complete coding change. |
+| [ponytail-audit](skills/ponytail-audit/SKILL.md) | Audit a repository for correctness, safety, and unnecessary code. |
+| [ponytail-debt](skills/ponytail-debt/SKILL.md) | List recorded shortcuts and their limits. |
+| [ponytail-gain](skills/ponytail-gain/SKILL.md) | Show the published Ponytail benchmark. |
+| [ponytail-help](skills/ponytail-help/SKILL.md) | Show Ponytail usage and commands. |
+| [ponytail-review](skills/ponytail-review/SKILL.md) | Review a change for correctness, safety, and unnecessary code. |
 | [mlstack](skills/mlstack/SKILL.md) | Select the workflow for the task. |
 | [plan-work](skills/plan-work/SKILL.md) | Resolve decisions, save a plan, and stop. |
 | [vertical-slices](skills/vertical-slices/SKILL.md) | Split work into small end-to-end changes. |

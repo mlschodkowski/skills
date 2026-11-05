@@ -11,6 +11,7 @@ optional. Load supporting references only when they affect the task.
 
 | Need | Workflow |
 | --- | --- |
+| Use Ponytail coding and review workflows | [ponytail](../ponytail/SKILL.md), [ponytail-audit](../ponytail-audit/SKILL.md), [ponytail-debt](../ponytail-debt/SKILL.md), [ponytail-gain](../ponytail-gain/SKILL.md), [ponytail-help](../ponytail-help/SKILL.md), [ponytail-review](../ponytail-review/SKILL.md) |
 | Resolve choices and save a plan | [plan-work](../plan-work/SKILL.md) |
 | Cut work into end-to-end steps | [vertical-slices](../vertical-slices/SKILL.md) |
 | Make a small, clear implementation change | [clean-code](../clean-code/SKILL.md) |
