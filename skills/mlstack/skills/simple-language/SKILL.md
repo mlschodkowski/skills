@@ -29,6 +29,7 @@ Write short active sentences with one term per concept. Keep evidence beside
 the claim. Remove filler, inflated claims, staged questions, forced contrasts,
 repeated summaries, and implementation details the reader does
 not need. Preserve qualifications that affect the reader's decision.
+For more guidance see `hemingway-style` skill.
 
 PRs and issues should explain the problem and result in a few useful lines.
 Do not add a large verification section when one sentence reports the checks.
